@@ -30,9 +30,10 @@ namespace Desafio_EF.Repositories
             _context.SaveChanges();
             return retorno.Entity;
         }
-        public ICollection<T> GetAll()
+        public List<T> GetAll()
         {
-            return _dbSet.ToList();
+            var query = _dbSet.AsQueryable();
+            return query.ToList();
         }
         public T GetById(int id)
         {

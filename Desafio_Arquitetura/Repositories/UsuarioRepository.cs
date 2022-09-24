@@ -24,14 +24,17 @@ namespace Desafio_EF.Repositories
         /// <returns>Retorna os Usuários que são médicos</returns>
         public ICollection<Usuario> GetUsuariosMedicos()
         {
-            
+
 
             var medicos = _context.Usuario
                 .Include(m => m.Medicos)
                     .ThenInclude(e => e.Especialidade)
                 .Where(m => m.IdTipoUsuario == 2)
                 .ToList();
-            medicos.ForEach(p => p.Senha = "Senha");
+            if (medicos != null && medicos.Count > 0)
+            {
+                medicos.ForEach(p => p.Senha = "Senha");
+            }
             return medicos;
         }
 
@@ -46,7 +49,10 @@ namespace Desafio_EF.Repositories
                 .Include(p => p.Pacientes)
                 .Where(p => p.IdTipoUsuario == 1)
                 .ToList();
-            pacientes.ForEach(p => p.Senha = "Senha");
+            if (pacientes != null && pacientes.Count > 0)
+            {
+                pacientes.ForEach(p => p.Senha = "Senha");
+            }
             return pacientes;
         }
     }

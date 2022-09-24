@@ -14,7 +14,7 @@ namespace Desafio_EF.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrador, Desenvolvedor")]
+    //[Authorize(Roles = "Administrador, Desenvolvedor")]
     public class UsuariosController : ControllerBase
     {
         private readonly IUsuarioRepository _usuarioRepository;
@@ -33,8 +33,11 @@ namespace Desafio_EF.Controllers
         {
             try
             {
-                var usuarios = _usuarioRepository.GetAll().ToList();
-                usuarios.ForEach(u => u.Senha = "Senha");
+                var usuarios = _usuarioRepository.GetAll();
+                if (usuarios != null && usuarios.Count > 0)
+                {
+                    usuarios.ForEach(u => u.Senha = "Senha");
+                }
                 return Ok(usuarios);
             }
             catch (Exception ex)
