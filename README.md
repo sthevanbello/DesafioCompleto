@@ -1,13 +1,14 @@
 ## Desafio Edusync/BRQ -  Módulo de construção de API com Entity Framework
 
 ### Objetivo
-#### Garantir a segurança e dos dados e implementar acessos autorizados
+#### Garantir a segurança e dos dados, implementar acessos autorizados e realizar testes com xUnit
 
 ### O que foi utilizado?
  - Linguagem C#
  - Asp.Net Core Web API versão 5.0
  - Criptografia de senhas com a biblioteca BCrypt
  - Autenticação com a biblioteca JWTBearer da Microsoft
+ - Testes com a biblioteca xUnit
  - Conceito de inversão de controle com injeção de dependência do repositório das models e do contexto
  - Repository Pattern com conceito de Generics para utilizar um Base Repository
  - ORM Entity Framework para acesso aos dados e persistência dos dados em um banco de dados
