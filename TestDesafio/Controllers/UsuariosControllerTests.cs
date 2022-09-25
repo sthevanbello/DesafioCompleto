@@ -24,7 +24,6 @@ namespace TestDesafio.Controllers
             _controller = new UsuariosController(_mockRepo.Object);
         }
 
-        
         [Fact]
         public void TestStatusCodeSuccessUsuariosMedicos()
         {
@@ -34,6 +33,7 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.Equal(200, result.StatusCode);
         }
+
         [Fact]
         public void TestStatusCodeSuccessUsuariosPacientes()
         {
