@@ -7,6 +7,7 @@ using System.Text;
 using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Desafio.Models;
 
 namespace Desafio_EF.Repositories
 {
@@ -19,18 +20,18 @@ namespace Desafio_EF.Repositories
             _context = context;
         }
 
-        public string Logar(string email, string senha)
+        public string Logar(Login login)
         {
             var usuario = _context.Usuario
-                .Where(u => u.Email == email)
+                .Where(u => u.Email == login.Email)
                 .Include(u => u.Acesso)
                 .Include(t => t.TipoUsuario)
                 .FirstOrDefault();
 
-            if (usuario != null && senha != null && usuario.Senha.Contains("$2b$"))
+            if (usuario != null && login.Senha != null && usuario.Senha.Contains("$2b$"))
             {
 
-                bool validPassword = BCrypt.Net.BCrypt.Verify(senha, usuario.Senha);
+                bool validPassword = BCrypt.Net.BCrypt.Verify(login.Senha, usuario.Senha);
                 if (validPassword)
                 {
                     // Criar as credenciais do JWT
