@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using System.Text.Json.Serialization;
 
 namespace Desafio_EF.Models
@@ -9,6 +10,7 @@ namespace Desafio_EF.Models
     /// <summary>
     /// Model Paciente
     /// </summary>
+    [DebuggerDisplay("{Id}: {Usuario.Nome} - {Ativo}")]
     public class Paciente
     {
         [Key]
