@@ -6,7 +6,8 @@ using System.Text.Json.Serialization;
 namespace Desafio_EF.Models
 {
     /// <summary>
-    /// Model Usuario
+    /// Model Usuario - Esta classe não pode ser abstrata, pois para testar o Insert com xUnit, é necessário criar uma instância de um Usuário.
+    /// <para>Tanto para Médico quanto para Paciente</para>
     /// </summary>
     public class Usuario
     {

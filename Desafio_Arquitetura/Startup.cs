@@ -53,7 +53,7 @@ namespace Desafio_EF
                     Contact = new OpenApiContact
                     {
                         Name = "Repositório do desafio de Arquitetura de Software",
-                        Url = new Uri("https://github.com/sthevanbello/Desafio_Arquitetura"),
+                        Url = new Uri("https://github.com/sthevanbello/DesafioCompleto"),
                     }
                 });
 
@@ -64,7 +64,7 @@ namespace Desafio_EF
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
-                    Description = @"Necessário token para autenticação.                                  
+                    Description = @"É necessário enviar o token para autenticação com o formato Bearer-espaço-token.                                   
                                     Exemplo: 'Bearer 12345abcdef'",
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -94,11 +94,8 @@ namespace Desafio_EF
 
             services.AddAuthentication(options =>
             {
-                //options.DefaultAuthenticateScheme = "JwtBearer";
-                //options.DefaultChallengeScheme = "JwtBearer";
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                //}).AddJwtBearer("JwtBearer", options =>
             }).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -126,6 +123,7 @@ namespace Desafio_EF
             services.AddTransient<IConsultaRepository, ConsultaRepository>();
             services.AddTransient<ITipoUsuarioRepository, TipoUsuarioRepository>();
             services.AddTransient<ILoginRepository, LoginRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
