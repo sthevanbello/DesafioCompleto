@@ -13,6 +13,9 @@ namespace TestsRequests.Controllers
 {
     public class PacientesControllerTests
     {
+        /// <summary>
+        /// Este teste só irá funcionar se a API estiver funcionando sem modo Debug
+        /// </summary>
         [Fact]
         public void TestGetTodosPacientes()
         {
