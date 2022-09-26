@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Desafio_EF.Models
+namespace Desafio.Models
 {
     /// <summary>
     /// Model Usuario - Esta classe não pode ser abstrata, pois para testar o Insert com xUnit, é necessário criar uma instância de um Usuário.

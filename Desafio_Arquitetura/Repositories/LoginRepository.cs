@@ -1,5 +1,5 @@
-﻿using Desafio_EF.Contexts;
-using Desafio_EF.Interfaces;
+﻿using Desafio.Contexts;
+using Desafio.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -9,7 +9,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Desafio.Models;
 
-namespace Desafio_EF.Repositories
+namespace Desafio.Repositories
 {
     public class LoginRepository : ILoginRepository
     {

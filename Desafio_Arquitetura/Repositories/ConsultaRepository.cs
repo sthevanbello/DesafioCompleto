@@ -1,11 +1,11 @@
-﻿using Desafio_EF.Contexts;
-using Desafio_EF.Interfaces;
-using Desafio_EF.Models;
+﻿using Desafio.Contexts;
+using Desafio.Interfaces;
+using Desafio.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Desafio_EF.Repositories
+namespace Desafio.Repositories
 {
     /// <summary>
     /// Repositório de Consultas herdando um repositório base e implementando a Interface

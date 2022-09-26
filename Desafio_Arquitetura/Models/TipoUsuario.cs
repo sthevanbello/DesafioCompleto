@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace Desafio_EF.Models
+namespace Desafio.Models
 {
     /// <summary>
     /// Model TipoUsuario

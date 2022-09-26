@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 using System.Text.Json.Serialization;
 
-namespace Desafio_EF.Models
+namespace Desafio.Models
 {
     /// <summary>
     /// Model Paciente

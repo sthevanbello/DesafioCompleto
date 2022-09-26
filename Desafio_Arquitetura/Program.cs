@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Desafio_EF
+namespace Desafio
 {
     public class Program
     {

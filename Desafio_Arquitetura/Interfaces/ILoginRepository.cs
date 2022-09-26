@@ -1,6 +1,6 @@
 ﻿using Desafio.Models;
 
-namespace Desafio_EF.Interfaces
+namespace Desafio.Interfaces
 {
     public interface ILoginRepository
     {

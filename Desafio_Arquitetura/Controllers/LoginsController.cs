@@ -1,9 +1,9 @@
 ﻿using Desafio.Models;
-using Desafio_EF.Interfaces;
+using Desafio.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Desafio_EF.Controllers
+namespace Desafio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

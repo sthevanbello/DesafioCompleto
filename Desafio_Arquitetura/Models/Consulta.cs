@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Desafio_EF.Models
+namespace Desafio.Models
 {
     /// <summary>
     /// Classe de relacionamento entre a classe Medico e a classe Paciente

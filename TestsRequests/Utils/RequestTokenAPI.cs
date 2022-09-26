@@ -15,7 +15,7 @@ namespace TestsRequests.Utils
 
         public static string GetToken(string email, string senha)
         {
-            const string baseUrl = "https://localhost:5001/api/";
+            const string baseUrl = "https://localhost:44323/api/";
             var json = JsonSerializer.Serialize(new { email, senha });
 
             var data = Encoding.ASCII.GetBytes(json);

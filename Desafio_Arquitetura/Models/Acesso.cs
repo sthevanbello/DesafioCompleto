@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Desafio_EF.Models
+namespace Desafio.Models
 {
     public class Acesso
     {

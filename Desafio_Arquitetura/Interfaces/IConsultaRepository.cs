@@ -1,7 +1,7 @@
-﻿using Desafio_EF.Models;
+﻿using Desafio.Models;
 using System.Collections.Generic;
 
-namespace Desafio_EF.Interfaces
+namespace Desafio.Interfaces
 {
     /// <summary>
     /// Interface de ConsultaRepository implementando a interface base com os métodos básicos.

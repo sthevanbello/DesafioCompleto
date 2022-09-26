@@ -1,6 +1,6 @@
-﻿using Desafio_EF.Controllers;
-using Desafio_EF.Interfaces;
-using Desafio_EF.Models;
+﻿using Desafio.Controllers;
+using Desafio.Interfaces;
+using Desafio.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;

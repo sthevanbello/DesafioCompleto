@@ -1,6 +1,6 @@
-using Desafio_EF.Contexts;
-using Desafio_EF.Interfaces;
-using Desafio_EF.Repositories;
+using Desafio.Contexts;
+using Desafio.Interfaces;
+using Desafio.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,7 +21,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Desafio_EF
+namespace Desafio
 {
     public class Startup
     {
@@ -133,7 +133,7 @@ namespace Desafio_EF
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio_EF v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio v1"));
             }
 
             app.UseHttpsRedirection();

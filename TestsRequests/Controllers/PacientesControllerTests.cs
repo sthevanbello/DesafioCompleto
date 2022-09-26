@@ -1,4 +1,4 @@
-﻿using Desafio_EF.Models;
+﻿using Desafio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace TestsRequests.Controllers
 
             var statusCode = 0;
             var msg = string.Empty;
-            string baseUrlPaciente = "https://localhost:5001/api/pacientes";
+            string baseUrlPaciente = "https://localhost:44323/api/pacientes";
             try
             {
                 var email = "marge@simpsons.com";

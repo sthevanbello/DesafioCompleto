@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using System.Collections.Generic;
 
-namespace Desafio_EF.Interfaces
+namespace Desafio.Interfaces
 {
     /// <summary>
     /// Interface de BaseRepository utilizando Generics <T>.

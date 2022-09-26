@@ -1,6 +1,6 @@
-﻿using Desafio_EF.Models;
+﻿using Desafio.Models;
 
-namespace Desafio_EF.Interfaces
+namespace Desafio.Interfaces
 {
     /// <summary>
     /// Interface de TipoUsuarioRepository implementando a interface base com os métodos básicos.

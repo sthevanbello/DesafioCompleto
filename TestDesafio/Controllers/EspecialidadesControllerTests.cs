@@ -1,5 +1,5 @@
-﻿using Desafio_EF.Controllers;
-using Desafio_EF.Interfaces;
+﻿using Desafio.Controllers;
+using Desafio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;

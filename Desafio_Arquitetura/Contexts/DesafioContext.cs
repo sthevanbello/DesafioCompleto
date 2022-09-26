@@ -1,9 +1,9 @@
-﻿using Desafio_EF.Models;
+﻿using Desafio.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Reflection.Metadata;
 
-namespace Desafio_EF.Contexts
+namespace Desafio.Contexts
 {
     public class DesafioContext : DbContext
     {

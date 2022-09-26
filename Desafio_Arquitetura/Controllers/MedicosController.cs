@@ -1,13 +1,13 @@
-﻿using Desafio_EF.Interfaces;
-using Desafio_EF.Models;
-using Desafio_EF.Repositories;
+﻿using Desafio.Interfaces;
+using Desafio.Models;
+using Desafio.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace Desafio_EF.Controllers
+namespace Desafio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
