@@ -20,7 +20,7 @@ namespace TestsRequests.Utils
 
             var data = Encoding.ASCII.GetBytes(json);
 
-            string path = $"{baseUrl}Logins";
+            string path = $"{baseUrl}Autenticar"; 
             HttpWebRequest request = WebRequest.CreateHttp(path);
             request.Method = "POST";
             request.ContentType = "application/json";
