@@ -48,7 +48,6 @@ namespace Desafio.Repositories
                         new Claim(JwtRegisteredClaimNames.Jti, usuario.Id.ToString()),
                         new Claim(ClaimTypes.Role, usuario.Acesso.Nivel), // Colocar o nível de acesso de acordo com o nível do usuário
                         new Claim("Cargo", usuario.TipoUsuario.Tipo) // Identifica o cargo do usuário
-
                     };
                     // Criada a chave de criptografia
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("desafio-chave-autenticacao"));
