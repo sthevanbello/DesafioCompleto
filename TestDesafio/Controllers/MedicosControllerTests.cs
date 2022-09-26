@@ -33,24 +33,6 @@ namespace TestDesafio.Controllers
         }
 
         [Fact]
-        public void TestStatusCodeSuccessMedicos()
-        {
-            // Execução - Act
-            var result = _controller.GetAllMedicos();
-            var OkObjectresult = result as OkObjectResult;
-            // Retorno
-            Assert.Equal(200, OkObjectresult.StatusCode);
-        }
-
-        [Fact]
-        public void TestActionResultNotNull()
-        {
-            // Execução - Act
-            var result = _controller.GetAllMedicos();
-            // Retorno
-            Assert.NotNull(result);
-        }
-        [Fact]
         public void TestActionResultReturnOk()
         {
 
@@ -59,22 +41,15 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.IsType<OkObjectResult>(result);
         }
-
         [Fact]
-        public void TestGetAllMedicos()
+        public void TestStatusCodeSuccessMedicos()
         {
-            _mockRepo.Setup(x => x.GetAllMedicos()).Returns(() => new List<Medico>());
-
-            var teste = _mockRepo.Object.GetAll();
-
             // Execução - Act
             var result = _controller.GetAllMedicos();
-            var okObjectResult = result as OkObjectResult;
-            okObjectResult.Value = new List<Usuario>();
+            var OkObjectresult = result as OkObjectResult;
             // Retorno
-            Assert.IsAssignableFrom<List<Usuario>>(okObjectResult.Value);
+            Assert.Equal(200, OkObjectresult.StatusCode);
         }
-
         [Fact]
         public void TestInsertMedicos()
         {
@@ -93,6 +68,14 @@ namespace TestDesafio.Controllers
                 }
             });
             Assert.IsType<OkObjectResult>(result);
+        }
+        [Fact]
+        public void TestActionResultNotNull()
+        {
+            // Execução - Act
+            var result = _controller.GetAllMedicos();
+            // Retorno
+            Assert.NotNull(result);
         }
     }
 }

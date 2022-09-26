@@ -49,7 +49,7 @@ namespace Desafio_EF.Controllers
         /// <returns>Retorna uma lista de consultas ou uma mensagem de erro</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet]
-        public IActionResult GetAllConsulta()
+        public IActionResult GetAllConsultas()
         {
             try
             {

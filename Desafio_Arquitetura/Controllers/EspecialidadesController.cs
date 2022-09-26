@@ -51,7 +51,7 @@ namespace Desafio_EF.Controllers
         /// <returns>Retorna uma lista de especialidades ou uma mensagem de erro</returns>
         [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet]
-        public IActionResult GetAllEspecialidade()
+        public IActionResult GetAllEspecialidades()
         {
             try
             {

@@ -25,23 +25,13 @@ namespace TestDesafio.Controllers
         }
 
         [Fact]
-        public void TestStatusCodeSuccessUsuariosMedicos()
+        public void TestActionResultReturnOkUsuarios()
         {
-            // Execução - Act
-            var actionResult = _controller.GetAllUsuariosMedicos();
-            var result = actionResult as OkObjectResult;
-            // Retorno
-            Assert.Equal(200, result.StatusCode);
-        }
 
-        [Fact]
-        public void TestStatusCodeSuccessUsuariosPacientes()
-        {
-            // Execução - Act
-            var actionResult = _controller.GetAllUsuariosPacientes();
-            var result = actionResult as OkObjectResult;
+            // Execução
+            var result = _controller.GetAllUsuarios();
             // Retorno
-            Assert.Equal(200, result.StatusCode);
+            Assert.IsType<OkObjectResult>(result);
         }
         [Fact]
         public void TestStatusCodeSuccessUsuarios()
@@ -52,56 +42,31 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.Equal(200, result.StatusCode);
         }
-
         [Fact]
-        public void TestActionResultNotNull()
+        public void TestStatusCodeSuccessUsuariosMedicos()
+        {
+            // Execução - Act
+            var actionResult = _controller.GetAllUsuariosMedicos();
+            var result = actionResult as OkObjectResult;
+            // Retorno
+            Assert.Equal(200, result.StatusCode);
+        }
+        [Fact]
+        public void TestStatusCodeSuccessUsuariosPacientes()
+        {
+            // Execução - Act
+            var actionResult = _controller.GetAllUsuariosPacientes();
+            var result = actionResult as OkObjectResult;
+            // Retorno
+            Assert.Equal(200, result.StatusCode);
+        }
+        [Fact]
+        public void TestActionResultNotNullUsuarios()
         {
             // Execução - Act
             var actionResult = _controller.GetAllUsuarios();
             // Retorno
             Assert.NotNull(actionResult);
-        }
-        [Fact]
-        public void TestActionResultReturnOk()
-        {
-
-            // Execução
-            var result = _controller.GetAllUsuarios();
-            // Retorno
-            Assert.IsType<OkObjectResult>(result);
-        }
-
-        [Fact]
-        public void TestGetAllUsuario()
-        {
-            // Execução - Act
-            var actionResult = _controller.GetAllUsuarios();
-            var okObjectResult = actionResult as OkObjectResult;
-            okObjectResult.Value = new List<Usuario>();
-            // Retorno
-            Assert.IsAssignableFrom<List<Usuario>>(okObjectResult.Value);
-        }
-
-
-        [Fact]
-        public void TestGetAllUsuarioPaciente()
-        {
-            // Execução - Act
-            var actionResult = _controller.GetAllUsuariosPacientes();
-            var okObjectResult = actionResult as OkObjectResult;
-            okObjectResult.Value = new List<Usuario>();
-            // Retorno
-            Assert.IsAssignableFrom<List<Usuario>>(okObjectResult.Value);
-        }
-        [Fact]
-        public void TestGetAllUsuarioMedico()
-        {
-            // Execução - Act
-            var actionResult = _controller.GetAllUsuariosMedicos();
-            var okObjectResult = actionResult as OkObjectResult;
-            okObjectResult.Value = new List<Usuario>();
-            // Retorno
-            Assert.IsAssignableFrom<List<Usuario>>(okObjectResult.Value);
         }
     }
 }
