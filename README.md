@@ -1,7 +1,7 @@
-## Desafio Edusync/BRQ -  Módulo de construção de API com Entity Framework
+## Desafio Edusync/BRQ -  Módulo de Arquitetura de Software, segurança e testes automatizados
 
 ### Objetivo
-#### Garantir a segurança e dos dados, implementar acessos autorizados e realizar testes com xUnit
+#### Garantir a segurança dos dados, implementar acessos autorizados e realizar testes com xUnit
 
 ### O que foi utilizado?
  - Linguagem C#
@@ -14,8 +14,9 @@
  - ORM Entity Framework para acesso aos dados e persistência dos dados em um banco de dados
  - Conceito de criação do banco de dados: Code First
  - Criação de migration para atualização do banco de dados
- - SQL Server 
-    - Inserção de dados com Script DML incluído no projeto na pasta Scripts
+ - Criação de um roteiro de testes incluído no projeto na pasta Arquivos
+ - SQL Server
+    - Inserção de dados com Script DML incluído no projeto na pasta Arquivos
  - Entity Framework versão 5.0.17
     - CRUD básico utilizando o Base Repository com Insert, GetAll, GetById, Update, Patch e Delete utilizando o conceito de Generics
     - Consultas personalizadas utilizando relacionamentos entre as tabelas
@@ -34,7 +35,13 @@
     ```
       dotnet ef database update
     ```
- - Executar o DML que está na pasta Scripts no projeto.
+ - Executar o DML que está na pasta Arquivos no projeto.
     - Esse script serve para facilitar os testes dos "Gets" sem a necessidade de persistir dados no banco através da API
 
- - Necessário gerar o Token no Post de Login e utilizar esse token no botão "Authorize" no Swagger    
+ - Necessário gerar o Token no Post de Login e utilizar esse token no botão "Authorize" no Swagger
+#### Há dois projetos de testes com xUnit
+    - Projeto TestDesafio testa as requisições básicas dos controllers da "API Desafio".
+    - Projeto TestRequest testa a requisição GetAllPacientes do PacientesController.
+      - Esse teste deve ser feito com a API executando sem Debug ou a partir de outra instância do Visual Studio.
+      - É necessário conferir a porta de conexão para poder comunicar corretamente.
+      - Essa configuração deve ser feita no arquivo PacientesControllerTests.cs e no arquivo RequestTokenAPI.cs, ambos no projeto TestsRequest

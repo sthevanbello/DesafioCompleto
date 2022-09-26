@@ -14,7 +14,7 @@ namespace Desafio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Administrador, Desenvolvedor")]
+    [Authorize(Roles = "Administrador, Desenvolvedor")]
     public class UsuariosController : ControllerBase
     {
         private readonly IUsuarioRepository _usuarioRepository;
