@@ -22,7 +22,7 @@ namespace TestDesafio.Controllers
 {
     public class MedicosControllerTests
     {
-        // Preparação
+        // Preparação - Criar um repositório Fake e ustilizá-lo no controller
         private readonly Mock<IMedicoRepository> _mockRepo;
         private readonly MedicosController _controller;
 
@@ -31,7 +31,9 @@ namespace TestDesafio.Controllers
             _mockRepo = new Mock<IMedicoRepository>();
             _controller = new MedicosController(_mockRepo.Object);
         }
-
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: OkObjectResult
+        /// </summary>
         [Fact]
         public void TestActionResultReturnOk()
         {
@@ -41,6 +43,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.IsType<OkObjectResult>(result);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: Status Code 200
+        /// </summary>
         [Fact]
         public void TestStatusCodeSuccessMedicos()
         {
@@ -50,6 +55,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.Equal(200, OkObjectresult.StatusCode);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: OkObjectResult
+        /// </summary>
         [Fact]
         public void TestInsertMedicos()
         {
@@ -69,6 +77,9 @@ namespace TestDesafio.Controllers
             });
             Assert.IsType<OkObjectResult>(result);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: NotNull
+        /// </summary>
         [Fact]
         public void TestActionResultNotNull()
         {

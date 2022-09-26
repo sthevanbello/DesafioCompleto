@@ -56,7 +56,7 @@ namespace Desafio
                         Url = new Uri("https://github.com/sthevanbello/DesafioCompleto"),
                     }
                 });
-
+                // Trecho responsável pela criação do botão Authorize no Swagger
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
                     Name = "Authorization",

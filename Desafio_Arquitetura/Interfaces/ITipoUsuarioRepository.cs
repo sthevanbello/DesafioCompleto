@@ -7,5 +7,7 @@ namespace Desafio.Interfaces
     /// </summary>
     public interface ITipoUsuarioRepository : IBaseRepository<TipoUsuario>
     {
+        // Interface de TipoUsuarioRepository implementando a interface base com os métodos básicos.
+        // Os métodos estão na IBaseRepository
     }
 }

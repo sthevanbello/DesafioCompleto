@@ -20,6 +20,11 @@ namespace Desafio.Repositories
             _context = context;
         }
 
+        /// <summary>
+        /// Método responsável por efetuar o Login do usuário a partir do Json recebido com e-mail e senha
+        /// </summary>
+        /// <param name="login">Dados do usuário para efetuar o login</param>
+        /// <returns>Retorna um string com o Token gerado para autenticação</returns>
         public string Logar(Login login)
         {
             var usuario = _context.Usuario
@@ -41,8 +46,8 @@ namespace Desafio.Repositories
                     {
                         new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
                         new Claim(JwtRegisteredClaimNames.Jti, usuario.Id.ToString()),
-                        new Claim(ClaimTypes.Role, usuario.Acesso.Nivel), // Colocar o nível de acesso
-                        new Claim("Cargo", usuario.TipoUsuario.Tipo)
+                        new Claim(ClaimTypes.Role, usuario.Acesso.Nivel), // Colocar o nível de acesso de acordo com o nível do usuário
+                        new Claim("Cargo", usuario.TipoUsuario.Tipo) // Identifica o cargo do usuário
 
                     };
                     // Criada a chave de criptografia

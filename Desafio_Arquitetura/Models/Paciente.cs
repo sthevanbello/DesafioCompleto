@@ -27,9 +27,6 @@ namespace Desafio.Models
         public int IdUsuario { get; set; }
         public Usuario Usuario { get; set; }
 
-
-
-
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<Consulta> Consultas { get; set; }
     }

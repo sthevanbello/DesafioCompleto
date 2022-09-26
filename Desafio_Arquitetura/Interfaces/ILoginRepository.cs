@@ -2,9 +2,11 @@
 
 namespace Desafio.Interfaces
 {
+    /// <summary>
+    /// Interface de LoginRepository
+    /// </summary>
     public interface ILoginRepository
     {
-        //string Logar(string email, string senha);
         string Logar(Login login);
     }
 }

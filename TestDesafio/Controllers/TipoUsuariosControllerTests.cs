@@ -13,6 +13,7 @@ namespace TestDesafio.Controllers
 {
     public class TipoUsuariosControllerTests
     {
+        // Preparação - Criar um repositório Fake e ustilizá-lo no controller
         private readonly Mock<ITipoUsuarioRepository> _mockRepo;
         private readonly TipoUsuariosController _controller;
 
@@ -21,7 +22,9 @@ namespace TestDesafio.Controllers
             _mockRepo = new Mock<ITipoUsuarioRepository>();
             _controller = new TipoUsuariosController(_mockRepo.Object);
         }
-
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: OkObjectResult
+        /// </summary>
         [Fact]
         public void TestActionResultReturnOkTipoUsuario()
         {
@@ -30,6 +33,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.IsType<OkObjectResult>(result);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: Status Code 200
+        /// </summary>
         [Fact]
         public void TestStatusCodeSuccessTipoUsuario()
         {
@@ -39,6 +45,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.Equal(200, OkObjectresult.StatusCode);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: NotNull
+        /// </summary>
         [Fact]
         public void TestActionResultNotNullTipoUsuario()
         {

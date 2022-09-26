@@ -23,6 +23,11 @@ namespace Desafio.Repositories
             _context = desafioContext;
             _dbSet = _context.Set<T>();
         }
+        /// <summary>
+        /// Inserie um item na base de dados
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns>Retorna o item que foi inserido na base de dados</returns>
         public T Insert(T item)
         {
             var retorno = _dbSet.Add(item);
@@ -30,26 +35,48 @@ namespace Desafio.Repositories
             _context.SaveChanges();
             return retorno.Entity;
         }
+        /// <summary>
+        /// Exibir uma lista do item da base de dados
+        /// </summary>
+        /// <returns>Retorna uma lista do item solicitado</returns>
         public List<T> GetAll()
         {
             var query = _dbSet.AsQueryable();
             return query.ToList();
         }
+        /// <summary>
+        /// Exibir um item de acordo com o id informado
+        /// </summary>
+        /// <param name="id">Id a ser pesquisado</param>
+        /// <returns>Retorna um item a partir do Id informado</returns>
         public T GetById(int id)
         {
             return _dbSet.Find(id);
         }
+        /// <summary>
+        /// Modificar parcialmente um item na base de dados
+        /// </summary>
+        /// <param name="patchItem">Parâmetro a ser modificado</param>
+        /// <param name="item">Item que terá o parâmetro modificado</param>
         public void Patch(JsonPatchDocument patchItem, T item)
         {
             patchItem.ApplyTo(item);
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
         }
+        /// <summary>
+        /// Modificar o item na base de dados
+        /// </summary>
+        /// <param name="item">Item a ser modificado</param>
         public void Put(T item)
         {
             _dbSet.Update(item);
             _context.SaveChanges();
         }
+        /// <summary>
+        /// Excluir um item da base de dados
+        /// </summary>
+        /// <param name="item">Item a ser excluído</param>
         public void Delete(T item)
         {
             _dbSet.Remove(item);

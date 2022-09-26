@@ -19,7 +19,7 @@ namespace Desafio.Controllers
         /// <summary>
         /// Insira o e-mail e a senha em formato Json
         /// </summary>
-        /// <param name="login"></param>
+        /// <param name="login">Dados do login fornecidos através de um Json</param>
         /// <returns>Retorna se o login foi válido com o TOKEN ou se não foi autorizado</returns>
         [HttpPost]
         public IActionResult Logar(Login login)

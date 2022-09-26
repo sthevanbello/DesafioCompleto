@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Desafio.Interfaces
 {
     /// <summary>
-    /// Interface de BaseRepository utilizando Generics <T>.
+    /// Interface de BaseRepository utilizando Generics T.
     /// <para>Esta interface recebe uma classe e de acordo com a classe os métodos poderão ser usados sem a necessidade de serem criados em todos os repositórios</para>
     /// <para>T é a classe recebida para ser utilizada</para>
     /// </summary>

@@ -31,7 +31,7 @@ namespace Desafio.Controllers
         {
             try
             {
-                medico.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(medico.Usuario.Senha);
+                medico.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(medico.Usuario.Senha); // Criptografia da senha
                 medico.Usuario.IdTipoUsuario = 2; // Garante que o tipo de usuário médico será sempre 2
                 var medicoInserido = _medicoRepository.Insert(medico);
                 return Ok(medicoInserido);
@@ -187,7 +187,7 @@ namespace Desafio.Controllers
                 {
                     return NotFound(new { msg = "Médico não encontrado. Conferir o Id informado" });
                 }
-                medico.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(medico.Usuario.Senha);
+                medico.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(medico.Usuario.Senha); // Criptografia da senha
                 _medicoRepository.Put(medico);
 
                 return Ok(new { msg = "Médico alterado", medico });

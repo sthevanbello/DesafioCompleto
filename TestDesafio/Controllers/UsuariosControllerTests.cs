@@ -14,7 +14,7 @@ namespace TestDesafio.Controllers
 {
     public class UsuariosControllerTests
     {
-        // Preparação
+        // Preparação - Criar um repositório Fake e ustilizá-lo no controller
         private readonly Mock<IUsuarioRepository> _mockRepo;
         private readonly UsuariosController _controller;
 
@@ -23,7 +23,9 @@ namespace TestDesafio.Controllers
             _mockRepo = new Mock<IUsuarioRepository>();
             _controller = new UsuariosController(_mockRepo.Object);
         }
-
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: OkObjectResult
+        /// </summary>
         [Fact]
         public void TestActionResultReturnOkUsuarios()
         {
@@ -33,6 +35,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.IsType<OkObjectResult>(result);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: Status Code 200
+        /// </summary>
         [Fact]
         public void TestStatusCodeSuccessUsuarios()
         {
@@ -42,6 +47,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.Equal(200, result.StatusCode);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: Status Code 200
+        /// </summary>
         [Fact]
         public void TestStatusCodeSuccessUsuariosMedicos()
         {
@@ -51,6 +59,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.Equal(200, result.StatusCode);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: Status Code 200
+        /// </summary>
         [Fact]
         public void TestStatusCodeSuccessUsuariosPacientes()
         {
@@ -60,6 +71,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.Equal(200, result.StatusCode);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: NotNull
+        /// </summary>
         [Fact]
         public void TestActionResultNotNullUsuarios()
         {

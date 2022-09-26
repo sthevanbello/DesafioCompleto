@@ -12,5 +12,7 @@ namespace Desafio.Repositories
         public TipoUsuarioRepository(DesafioContext desafioContext) : base(desafioContext)
         {
         }
+
+        // Todos os métodos estão sendo herdados do BaseRepository
     }
 }

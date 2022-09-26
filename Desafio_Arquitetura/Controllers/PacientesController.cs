@@ -31,7 +31,7 @@ namespace Desafio.Controllers
         {
             try
             {
-                paciente.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(paciente.Usuario.Senha);
+                paciente.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(paciente.Usuario.Senha); // Criptografia da senha
                 paciente.Usuario.IdTipoUsuario = 1; // Garante que o tipo de usuário será sempre 1, pois é paciente
                 var pacienteInserido = _pacienteRepository.Insert(paciente);
                 return Ok(pacienteInserido);
@@ -128,7 +128,6 @@ namespace Desafio.Controllers
         /// <param name="id">Id do paciente</param>
         /// <param name="patchPaciente">informações a serem alteradas</param>
         /// <returns>Retorna uma mensagem informando se o paciente teve seu dado alterado ou se houve falha</returns>
-        //[Authorize]
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpPatch("{id}")]
         public IActionResult PatchPaciente(int id, [FromBody] JsonPatchDocument patchPaciente)

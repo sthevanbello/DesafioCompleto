@@ -27,7 +27,7 @@ namespace Desafio.Repositories
             var pacientes = _context.Paciente
                 .Include(p => p.Usuario)
                 .ToList();
-            pacientes.ForEach(p => p.Usuario.Senha = "Senha");
+            pacientes.ForEach(p => p.Usuario.Senha = "Senha"); // Substituir a senha criptografada pela palavra Senha
             return pacientes;
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Desafio.Repositories
             var paciente = _context.Paciente
                 .Include(p => p.Usuario)
                 .FirstOrDefault(p => p.Id == id);
-            paciente.Usuario.Senha = "Senha";
+            paciente.Usuario.Senha = "Senha"; // Substituir a senha criptografada pela palavra Senha
             return paciente;
         }
         /// <summary>
@@ -60,6 +60,7 @@ namespace Desafio.Repositories
                         .ThenInclude(m => m.Usuario)
                             .ThenInclude(t => t.TipoUsuario)
                 .ToList();
+            // Substituir a senha criptografada pela palavra Senha
             pacientes.ForEach(p => p.Usuario.Senha = "Senha");
             pacientes.ForEach(p => p.Consultas.ForEach(m => m.Medico.Usuario.Senha = "Senha"));
             return pacientes;

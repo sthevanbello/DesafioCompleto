@@ -13,6 +13,7 @@ namespace TestDesafio.Controllers
 {
     public class EspecialidadesControllerTests
     {
+        // Preparação - Criar um repositório Fake e ustilizá-lo no controller
         private readonly Mock<IEspecialidadeRepository> _mockRepo;
         private readonly EspecialidadesController _controller;
 
@@ -21,6 +22,9 @@ namespace TestDesafio.Controllers
             _mockRepo = new Mock<IEspecialidadeRepository>();
             _controller = new EspecialidadesController(_mockRepo.Object);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: OkObjectResult
+        /// </summary>
         [Fact]
         public void TestActionResultReturnOkEspecialidades()
         {
@@ -30,6 +34,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.IsType<OkObjectResult>(result);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: OkObjectResult
+        /// </summary>
         [Fact]
         public void TestActionResultReturnOkEspecialidadesComMedicos()
         {
@@ -39,6 +46,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.IsType<OkObjectResult>(result);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: Status Code 200
+        /// </summary>
         [Fact]
         public void TestStatusCodeSuccessEspecialidades()
         {
@@ -48,6 +58,9 @@ namespace TestDesafio.Controllers
             // Retorno
             Assert.Equal(200, result.StatusCode);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: OkObjectResult
+        /// </summary>
         [Fact]
         public void TestInsertEspecialidade()
         {
@@ -57,6 +70,9 @@ namespace TestDesafio.Controllers
             });
             Assert.IsType<OkObjectResult>(result);
         }
+        /// <summary>
+        /// Testar o retorno do método. Retorno esperado: NotNull
+        /// </summary>
         [Fact]
         public void TestActionResultNotNullEspecialidades()
         {

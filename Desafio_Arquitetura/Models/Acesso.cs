@@ -2,6 +2,9 @@
 
 namespace Desafio.Models
 {
+    /// <summary>
+    /// Classe para delimitar o Acesso ao sistema
+    /// </summary>
     public class Acesso
     {
         [Key]

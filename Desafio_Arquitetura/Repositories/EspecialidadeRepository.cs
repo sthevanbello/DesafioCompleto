@@ -30,6 +30,7 @@ namespace Desafio.Repositories
                     .ThenInclude(u => u.Usuario)
                 .ToList();
             // Garante que só vai retornar alguns dados do médico e não todos. 
+            // No caso só retornará o nome do médico
             especialidade.ForEach(m => m.Medicos.ForEach(m => m.Usuario = new Usuario { Nome = m.Usuario.Nome })); 
             return especialidade;
         }
