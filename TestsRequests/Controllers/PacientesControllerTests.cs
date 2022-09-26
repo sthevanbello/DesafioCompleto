@@ -14,6 +14,7 @@ namespace TestsRequests.Controllers
     public class PacientesControllerTests
     {
         /// <summary>
+        /// Testar a requisição Get para todos os pacientes.
         /// Este teste só irá funcionar se a API estiver funcionando sem modo Debug
         /// </summary>
         [Fact]
