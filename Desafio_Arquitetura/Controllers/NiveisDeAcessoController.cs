@@ -11,11 +11,11 @@ namespace Desafio.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "Administrador, Desenvolvedor")]
-    public class AcessosController : ControllerBase
+    public class NiveisDeAcessoController : ControllerBase
     {
-        private readonly IAcessoRepository _repositoryAcesso;
+        private readonly INiveisDeAcessoRepository _repositoryAcesso;
 
-        public AcessosController(IAcessoRepository repositoryAcesso)
+        public NiveisDeAcessoController(INiveisDeAcessoRepository repositoryAcesso)
         {
             _repositoryAcesso = repositoryAcesso;
         }

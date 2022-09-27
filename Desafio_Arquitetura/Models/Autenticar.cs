@@ -5,7 +5,7 @@ namespace Desafio.Models
     /// <summary>
     /// Classe de Login para gerar o Json e servir de autenticador ne Login
     /// </summary>
-    public class Login
+    public class Autenticar
     {
         [Required(ErrorMessage = "informe o e-mail do usuário")]
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Insira um e-mail válido")]

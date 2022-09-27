@@ -17,7 +17,7 @@ namespace Desafio.Contexts
         public DbSet<Medico> Medico { get; set; }
         public DbSet<Especialidade> Especialidade { get; set; }
         public DbSet<Consulta> Consulta { get; set; } // Classe de relacionamento entre Médico e Paciente
-        public DbSet<Acesso> Acesso { get; set; } // Classe de níveis de acesso
+        public DbSet<NiveisDeAcesso> Acesso { get; set; } // Classe de níveis de acesso
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

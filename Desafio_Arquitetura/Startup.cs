@@ -122,8 +122,8 @@ namespace Desafio
             services.AddTransient<IEspecialidadeRepository, EspecialidadeRepository>();
             services.AddTransient<IConsultaRepository, ConsultaRepository>();
             services.AddTransient<ITipoUsuarioRepository, TipoUsuarioRepository>();
-            services.AddTransient<ILoginRepository, LoginRepository>();
-            services.AddTransient<IAcessoRepository, AcessoRepository>();
+            services.AddTransient<IAutenticarRepository, AutenticarRepository>();
+            services.AddTransient<INiveisDeAcessoRepository, NiveisDeAcessoRepository>();
 
         }
 

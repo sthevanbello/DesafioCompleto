@@ -5,7 +5,7 @@ namespace Desafio.Models
     /// <summary>
     /// Classe para delimitar o Acesso ao sistema
     /// </summary>
-    public class Acesso
+    public class NiveisDeAcesso
     {
         [Key]
         public int Id { get; set; }

@@ -38,7 +38,7 @@ namespace Desafio.Models
         public int IdAcesso { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Acesso Acesso { get; set; }
+        public NiveisDeAcesso Acesso { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public ICollection<Medico> Medicos { get; set; }

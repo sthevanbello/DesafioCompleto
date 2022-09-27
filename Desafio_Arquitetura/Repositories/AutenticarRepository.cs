@@ -11,11 +11,11 @@ using Desafio.Models;
 
 namespace Desafio.Repositories
 {
-    public class LoginRepository : ILoginRepository
+    public class AutenticarRepository : IAutenticarRepository
     {
         private readonly DesafioContext _context;
 
-        public LoginRepository(DesafioContext context)
+        public AutenticarRepository(DesafioContext context)
         {
             _context = context;
         }
@@ -25,7 +25,7 @@ namespace Desafio.Repositories
         /// </summary>
         /// <param name="login">Dados do usuário para efetuar o login</param>
         /// <returns>Retorna um string com o Token gerado para autenticação</returns>
-        public string Logar(Login login)
+        public string Logar(Autenticar login)
         {
             var usuario = _context.Usuario
                 .Where(u => u.Email == login.Email)

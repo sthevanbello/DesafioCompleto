@@ -9,9 +9,9 @@ namespace Desafio.Controllers
     [ApiController]
     public class AutenticarController : ControllerBase
     {
-        private readonly ILoginRepository _repositoryLogin;
+        private readonly IAutenticarRepository _repositoryLogin;
 
-        public AutenticarController(ILoginRepository repositoryLogin)
+        public AutenticarController(IAutenticarRepository repositoryLogin)
         {
             _repositoryLogin = repositoryLogin;
         }
@@ -53,7 +53,7 @@ namespace Desafio.Controllers
         /// <response code="200">Login bem sucedido</response>
         /// <response code="401">Acesso negado</response>   
         [HttpPost]
-        public IActionResult Logar(Login login)
+        public IActionResult Logar(Autenticar login)
         {
             var token = _repositoryLogin.Logar(login);
             if (token == null)

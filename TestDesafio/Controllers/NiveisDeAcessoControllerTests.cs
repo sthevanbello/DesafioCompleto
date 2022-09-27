@@ -11,16 +11,16 @@ using Xunit;
 
 namespace TestDesafio.Controllers
 {
-    public class AcessosControllerTests
+    public class NiveisDeAcessoControllerTests
     {
         // Preparação - Criar um repositório Fake e ustilizá-lo no controller
-        private readonly Mock<IAcessoRepository> _mockRepo;
-        private readonly AcessosController _controller;
+        private readonly Mock<INiveisDeAcessoRepository> _mockRepo;
+        private readonly NiveisDeAcessoController _controller;
 
-        public AcessosControllerTests()
+        public NiveisDeAcessoControllerTests()
         {
-            _mockRepo = new Mock<IAcessoRepository>();
-            _controller = new AcessosController(_mockRepo.Object);
+            _mockRepo = new Mock<INiveisDeAcessoRepository>();
+            _controller = new NiveisDeAcessoController(_mockRepo.Object);
         }
         /// <summary>
         /// Testar o retorno do método. Retorno esperado: OkObjectResult

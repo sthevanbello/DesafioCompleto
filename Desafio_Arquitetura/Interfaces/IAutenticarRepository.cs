@@ -5,8 +5,8 @@ namespace Desafio.Interfaces
     /// <summary>
     /// Interface de LoginRepository
     /// </summary>
-    public interface ILoginRepository
+    public interface IAutenticarRepository
     {
-        string Logar(Login login);
+        string Logar(Autenticar login);
     }
 }
