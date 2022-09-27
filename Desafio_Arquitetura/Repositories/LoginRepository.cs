@@ -35,7 +35,6 @@ namespace Desafio.Repositories
 
             if (usuario != null && login.Senha != null && usuario.Senha.Contains("$2b$"))
             {
-
                 bool validPassword = BCrypt.Net.BCrypt.Verify(login.Senha, usuario.Senha);
                 if (validPassword)
                 {

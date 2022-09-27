@@ -33,6 +33,7 @@ namespace Desafio.Controllers
             {
                 paciente.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(paciente.Usuario.Senha); // Criptografia da senha
                 paciente.Usuario.IdTipoUsuario = 1; // Garante que o tipo de usuário será sempre 1, pois é paciente
+                paciente.Usuario.IdAcesso = 1;
                 var pacienteInserido = _pacienteRepository.Insert(paciente);
                 return Ok(pacienteInserido);
             }

@@ -23,6 +23,18 @@ namespace Desafio.Controllers
         /// <summary>
         /// Inserir um Médico no banco com a sua especialidade e com os dados de usuário, caso não tenha sido inserido no banco anteriormente
         /// </summary>
+        /// /// <remarks>
+        /// 
+        /// Especialidade:
+        /// 
+        ///     1 - Clínico Geral
+        ///     2 - Cardiologia
+        ///     3 - Ortopedia
+        ///     4 - Otorrinolaringologista
+        ///     5 - Gastroenterologista
+        ///     6 - Endocrinologia
+        /// 
+        /// </remarks>
         /// <param name="medico"></param>
         /// <returns>Retorna o médico inserido ou uma mensagem de erro</returns>
         [Authorize(Roles = "Administrador, Desenvolvedor")]
@@ -33,6 +45,7 @@ namespace Desafio.Controllers
             {
                 medico.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(medico.Usuario.Senha); // Criptografia da senha
                 medico.Usuario.IdTipoUsuario = 2; // Garante que o tipo de usuário médico será sempre 2
+                medico.Usuario.IdAcesso = 2;
                 var medicoInserido = _medicoRepository.Insert(medico);
                 return Ok(medicoInserido);
             }

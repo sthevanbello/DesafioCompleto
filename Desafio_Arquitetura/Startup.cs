@@ -123,6 +123,7 @@ namespace Desafio
             services.AddTransient<IConsultaRepository, ConsultaRepository>();
             services.AddTransient<ITipoUsuarioRepository, TipoUsuarioRepository>();
             services.AddTransient<ILoginRepository, LoginRepository>();
+            services.AddTransient<IAcessoRepository, AcessoRepository>();
 
         }
 
