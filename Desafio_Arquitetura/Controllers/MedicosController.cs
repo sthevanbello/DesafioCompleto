@@ -25,6 +25,11 @@ namespace Desafio.Controllers
         /// </summary>
         /// /// <remarks>
         /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
         /// Especialidade:
         /// 
         ///     1 - Clínico Geral
@@ -35,7 +40,7 @@ namespace Desafio.Controllers
         ///     6 - Endocrinologia
         /// 
         /// </remarks>
-        /// <param name="medico"></param>
+        /// <param name="medico">Médico a ser inserido no banco de dados</param>
         /// <returns>Retorna o médico inserido ou uma mensagem de erro</returns>
         [Authorize(Roles = "Administrador, Desenvolvedor")]
         [HttpPost]
@@ -62,6 +67,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de Médico cadastrados no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de médicos ou uma mensagem de erro</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet]
@@ -86,6 +100,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de médicos e suas consultas cadastradas no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de médicos com as consultas ou uma mensagem de erro</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet("Consultas")]
@@ -110,6 +133,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir um Médico a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do Medico</param>
         /// <returns>Retorna um médico ou uma mensagem de erro</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
@@ -139,10 +171,18 @@ namespace Desafio.Controllers
         /// <summary>
         /// Atualizar parte das informações do Médico
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do Médico</param>
         /// <param name="patchMedico">informações a serem alteradas</param>
         /// <returns>Retorna se o médico foi alterado ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Administrador, Desenvolvedor")]
         [HttpPatch("{id}")]
         public IActionResult PatchMedico(int id, [FromBody] JsonPatchDocument patchMedico)
         {
@@ -181,6 +221,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Alterar um Médico a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da Medico</param>
         /// <param name="medico">Dados atualizados</param>
         /// <returns>Retorna se o médico foi alterado ou uma mensagem de erro</returns>
@@ -219,6 +267,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Excluir Médico do banco de dados
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da Médico a ser excluído</param>
         /// <returns>Retorna se o médico foi apagado ou uma mensagem de erro</returns>
         [Authorize(Roles = "Administrador, Desenvolvedor")]

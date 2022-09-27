@@ -41,7 +41,7 @@ namespace Desafio.Controllers
         ///        "email": "homer@simpsons.com",
         ///        "senha": "homer123456"
         ///     }
-        /// Médico:
+        /// Funcionário Padrão (Médico):
         /// 
         ///     {
         ///        "email": "apu@simpsons.com",
@@ -51,7 +51,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="login">Dados do login fornecidos através de um Json</param>
         /// <response code="200">Login bem sucedido</response>
-        /// <response code="401">Acesso negado</response>   
+        /// <response code="401">Acesso negado</response>
+        /// <returns>Retorna o token para realizar a autenticação ou uma mensagem de erro</returns>
         [HttpPost]
         public IActionResult Logar(Autenticar login)
         {

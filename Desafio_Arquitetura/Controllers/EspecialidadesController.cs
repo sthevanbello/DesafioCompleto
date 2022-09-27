@@ -23,7 +23,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Inserir uma especialidade no banco de dados.
         /// </summary>
-        /// <param name="especialidade"></param>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
+        /// <param name="especialidade">Especialidade a ser inserida</param>
         /// <returns>Retorna a especialidade inserida ou uma mensagem de erro</returns>
         [Authorize(Roles = "Administrador, Desenvolvedor")]
         [HttpPost]
@@ -48,6 +56,16 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de especialidades cadastradas no banco de dados
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Paciente
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de especialidades ou uma mensagem de erro</returns>
         [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet]
@@ -72,6 +90,16 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de especialidades cadastradas no banco de dados
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Paciente
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de especialidades com os médicos ou uma mensagem de erro</returns>
         [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet("Medicos")]
@@ -96,6 +124,16 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma especialidade a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Paciente
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da especialidade</param>
         /// <returns>Retorna uma especialidade ou uma mensagem de erro</returns>
         [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
@@ -125,6 +163,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Atualizar parte das informações da especialidade
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da especialidade</param>
         /// <param name="patchEspecialidade">informações a serem alteradas</param>
         /// <returns>Retorna se a especialidade foi alterada ou uma mensagem de erro</returns>
@@ -163,6 +209,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Alterar uma especialidade a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da especialidade</param>
         /// <param name="especialidade">Dados atualizados</param>
         /// <returns>Retorna se a especialidade foi alterada ou uma mensagem de erro</returns>
@@ -201,6 +255,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Excluir especialidade do banco de dados
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da especialidade a ser excluído</param>
         /// <returns>Retorna se a especialidade foi apagada ou uma mensagem de erro</returns>
         [Authorize(Roles = "Administrador, Desenvolvedor")]

@@ -24,6 +24,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de Tipos de usuários cadastrados no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de tipoUsuario ou se houve falha</returns>
         [HttpGet]
         public IActionResult GetAllTipoUsuario()
@@ -47,9 +55,17 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir um tipo de usuário a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do tipo de usuário</param>
         /// <returns>Retorna um tipoUsuario ou se houve falha</returns>
-        
+
         [HttpGet("{id}")]
         public IActionResult GetByIdTipoUsuario(int id)
         {

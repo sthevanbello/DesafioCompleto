@@ -22,7 +22,16 @@ namespace Desafio.Controllers
         /// <summary>
         /// Inserir uma consulta no banco de dados.
         /// </summary>
-        /// <param name="consulta"></param>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
+        /// <param name="consulta">Consulta a ser inserida</param>
         /// <returns>Retorna a consulta inserida ou uma mensagem de erro</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpPost]
@@ -46,6 +55,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de consultas cadastradas no banco de dados
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de consultas ou uma mensagem de erro</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet]
@@ -69,6 +87,16 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma consulta a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Paciente
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da consulta</param>
         /// <returns>Retorna uma consulta com paciente e médico ou uma mensagem de erro</returns>
         [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
@@ -99,6 +127,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Atualizar parte das informações da consulta
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da consulta</param>
         /// <param name="patchConsulta">informações a serem alteradas</param>
         /// <returns>Retorna uma mensagem se a consulta foi alterada ou se houve algum erro</returns>
@@ -137,6 +173,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Alterar um consulta a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da consulta</param>
         /// <param name="consulta">Dados atualizados</param>
         /// <returns>Retorna uma mensagem se a consulta foi alterada ou se houve algum erro</returns>
@@ -175,6 +219,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Excluir consulta do banco de dados
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da consulta a ser excluído</param>
         /// <returns>Retorna uma mensagem se a consulta foi apagada ou se houve algum erro</returns>
         [Authorize(Roles = "Administrador, Desenvolvedor")]

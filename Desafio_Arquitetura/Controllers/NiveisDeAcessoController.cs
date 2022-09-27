@@ -1,4 +1,5 @@
 ﻿using Desafio.Interfaces;
+using Desafio.Models;
 using Desafio.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +24,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de níveis de acessos cadastrados no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de níveis de acessos ou se houve falha</returns>
         [HttpGet]
         public IActionResult GetAllAcessos()
@@ -46,6 +55,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir um nível de acesso a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do nível de acesso</param>
         /// <returns>Retorna um nível de acesso ou se houve falha</returns>
 

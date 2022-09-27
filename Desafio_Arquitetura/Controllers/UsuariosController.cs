@@ -27,6 +27,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de usuários cadastrados no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de usuários</returns>
         [HttpGet]
         public IActionResult GetAllUsuarios()
@@ -53,6 +61,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de usuários que são médicos cadastrados no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de usuários médicos</returns>
         [HttpGet("Medicos")]
         public IActionResult GetAllUsuariosMedicos()
@@ -75,6 +91,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de usuários que são médicos cadastrados no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de usuários pacientes</returns>
         [HttpGet("Pacientes")]
         public IActionResult GetAllUsuariosPacientes()
@@ -98,6 +122,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir um usuário a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do usuário</param>
         /// <returns>Retorna um Usuário</returns>
         [HttpGet("{id}")]
@@ -127,6 +159,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Atualizar parte das informações do usuário
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do usuário</param>
         /// <param name="patchUsuario">informações a serem alteradas</param>
         /// <returns>Retorna uma mensagem dizendo se o usuário foi alterado ou se houve algum erro</returns>
@@ -164,6 +204,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Alterar um usuário a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do usuário</param>
         /// <param name="usuario">Dados atualizados</param>
         /// <returns>Retorna uma mensagem dizendo se o usuário foi alterado ou se houve algum erro</returns>

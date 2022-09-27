@@ -23,7 +23,16 @@ namespace Desafio.Controllers
         /// <summary>
         /// Inserir um paciente no banco.
         /// </summary>
-        /// <param name="paciente"></param>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
+        /// <param name="paciente">Paciente a ser inserido</param>
         /// <returns>Retorna um paciente inserido ou se houve falha</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpPost]
@@ -49,6 +58,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de usuários cadastrados no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna um paciente ou se houve falha</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet]
@@ -73,6 +91,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir uma lista de pacientes e suas consultas cadastradas no sistema
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <returns>Retorna uma lista de  pacientes comconsultas ou se houve falha</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
         [HttpGet("Consultas")]
@@ -97,6 +124,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Exibir um paciente a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do paciente</param>
         /// <returns>Retorna um paciente ou se houve falha</returns>
         [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
@@ -126,6 +162,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Atualizar parte das informações do paciente
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id do paciente</param>
         /// <param name="patchPaciente">informações a serem alteradas</param>
         /// <returns>Retorna uma mensagem informando se o paciente teve seu dado alterado ou se houve falha</returns>
@@ -176,6 +221,15 @@ namespace Desafio.Controllers
         /// <summary>
         /// Alterar um paciente a partir do Id fornecido
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Funcionário Padrão
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da paciente</param>
         /// <param name="paciente">Dados atualizados</param>
         /// <returns>Retorna uma mensagem informando se o paciente foi alterado ou se houve falha</returns>
@@ -214,6 +268,14 @@ namespace Desafio.Controllers
         /// <summary>
         /// Excluir paciente do banco de dados
         /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Administrador
+        ///     - Desenvolvedor
+        /// 
+        /// </remarks>
         /// <param name="id">Id da paciente a ser excluído</param>
         /// <returns>Retorna uma mensagem informando se o paciente foi alterado ou se houve falha</returns>
         [Authorize(Roles = "Administrador, Desenvolvedor")]
