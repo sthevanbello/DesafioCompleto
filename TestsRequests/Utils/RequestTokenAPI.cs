@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Desafio.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,14 +19,14 @@ namespace TestsRequests.Utils
         /// <param name="email">email recebido para realizar a autenticação</param>
         /// <param name="senha">senha recebida para realizar a autenticação</param>
         /// <returns>Retorna um token válido por 30 minutos</returns>
-        public static string GetToken(string email, string senha)
+        public static string GetToken(Autenticar login)
         {
             const string baseUrl = "https://localhost:44323/api/";
-            var json = JsonSerializer.Serialize(new { email, senha });
+            var json = JsonSerializer.Serialize(login);
 
             var data = Encoding.ASCII.GetBytes(json);
 
-            string path = $"{baseUrl}Autenticar"; 
+            string path = $"{baseUrl}_Autenticar"; 
             HttpWebRequest request = WebRequest.CreateHttp(path);
             request.Method = "POST";
             request.ContentType = "application/json";

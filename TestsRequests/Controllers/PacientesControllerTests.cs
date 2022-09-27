@@ -26,9 +26,12 @@ namespace TestsRequests.Controllers
             string baseUrlPaciente = "https://localhost:44323/api/pacientes";
             try
             {
-                var email = "marge@simpsons.com";
-                var senha = "marge123456";
-                var token = RequestTokenAPI.GetToken(email, senha);
+                var login = new Autenticar
+                {
+                    Email = "marge@simpsons.com",
+                    Senha = "marge123456"
+                };
+                var token = RequestTokenAPI.GetToken(login);
                 var urlParams = "";
                 var http = new HttpClient { BaseAddress = new Uri($"{baseUrlPaciente}") };
 
