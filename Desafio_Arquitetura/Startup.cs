@@ -124,6 +124,8 @@ namespace Desafio
             services.AddTransient<ITipoUsuarioRepository, TipoUsuarioRepository>();
             services.AddTransient<IAutenticarRepository, AutenticarRepository>();
             services.AddTransient<INiveisDeAcessoRepository, NiveisDeAcessoRepository>();
+            services.AddTransient<IAdministradorRepository, AdministradorRepository>();
+            services.AddTransient<IDesenvolvedorRepository, DesenvolvedorRepository>();
 
         }
 

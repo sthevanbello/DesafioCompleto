@@ -14,7 +14,7 @@ namespace Desafio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrador, Desenvolvedor")]
+    [Authorize(Roles = "Avancado, Master")]
     public class UsuariosController : ControllerBase
     {
         private readonly IUsuarioRepository _usuarioRepository;
@@ -31,8 +31,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de usuários</returns>
@@ -65,8 +65,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de usuários médicos</returns>
@@ -95,8 +95,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de usuários pacientes</returns>
@@ -126,8 +126,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do usuário</param>
@@ -163,8 +163,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do usuário</param>
@@ -208,8 +208,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do usuário</param>

@@ -26,14 +26,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Intermediário - Funcionário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="consulta">Consulta a ser inserida</param>
         /// <returns>Retorna a consulta inserida ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpPost]
         public IActionResult InsertConsulta(Consulta consulta)
         {
@@ -59,13 +59,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Intermediário - Funcionário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de consultas ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet]
         public IActionResult GetAllConsultas()
         {
@@ -91,15 +91,15 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Paciente
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Inicial       - Usuário externo (Pacientes)
+        ///     - Intermediário - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da consulta</param>
         /// <returns>Retorna uma consulta com paciente e médico ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpGet("{id}")]
         public IActionResult GetConsultaCompletaById(int id)
         {
@@ -131,14 +131,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da consulta</param>
         /// <param name="patchConsulta">informações a serem alteradas</param>
         /// <returns>Retorna uma mensagem se a consulta foi alterada ou se houve algum erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpPatch("{id}")]
         public IActionResult PatchConsulta(int id, [FromBody] JsonPatchDocument patchConsulta)
         {
@@ -177,14 +177,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da consulta</param>
         /// <param name="consulta">Dados atualizados</param>
         /// <returns>Retorna uma mensagem se a consulta foi alterada ou se houve algum erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpPut("{id}")]
         public IActionResult PutConsulta(int id, Consulta consulta)
         {
@@ -223,13 +223,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da consulta a ser excluído</param>
         /// <returns>Retorna uma mensagem se a consulta foi apagada ou se houve algum erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpDelete("{id}")]
         public IActionResult DeleteConsulta(int id)
         {

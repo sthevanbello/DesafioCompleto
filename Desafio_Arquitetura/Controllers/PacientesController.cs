@@ -27,14 +27,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Intermediario - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="paciente">Paciente a ser inserido</param>
         /// <returns>Retorna um paciente inserido ou se houve falha</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpPost]
         public IActionResult InsertPaciente(Paciente paciente)
         {
@@ -62,13 +62,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Intermediario - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna um paciente ou se houve falha</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet]
         public IActionResult GetAllPacientes()
         {
@@ -95,19 +95,19 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Intermediario - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de  pacientes comconsultas ou se houve falha</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet("Consultas")]
         public IActionResult GetAllPacientesComConsulta()
         {
             try
             {
-                var pacientes = _pacienteRepository.GetPacientesComSonsultas();
+                var pacientes = _pacienteRepository.GetPacientesComConsultas();
                 return Ok(pacientes);
             }
             catch (Exception ex)
@@ -127,15 +127,15 @@ namespace Desafio.Controllers
         /// <remarks>
         /// 
         /// Acesso permitido:
-        /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Inicial       - Usuário externo (Paciente)
+        ///     - Intermediario - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do paciente</param>
         /// <returns>Retorna um paciente ou se houve falha</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpGet("{id}")]
         public IActionResult GetByIdPaciente(int id)
         {
@@ -158,23 +158,61 @@ namespace Desafio.Controllers
                 });
             }
         }
+        
+        /// <summary>
+        /// Exibir um paciente a partir do Id fornecido
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Inicial       - Usuário externo (Paciente)
+        ///     - Intermediario - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
+        /// 
+        /// </remarks>
+        /// <param name="id">Id do paciente</param>
+        /// <returns>Retorna um paciente ou se houve falha</returns>
+        [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
+        [HttpGet("Consulta/{id}")]
+        public IActionResult GetByIdPacienteComSonsulta(int id)
+        {
+            try
+            {
+                var paciente = _pacienteRepository.GetByIdPacienteComConsulta(id);
+                if (paciente is null)
+                {
+                    return NotFound(new { msg = "Paciente não foi encontrado. Verifique se o Id está correto" });
+                }
+                return Ok(paciente);
+            }
+            catch (Exception ex)
+            {
 
+                return BadRequest(new
+                {
+                    msg = "Falha ao exibir o paciente",
+                    ex.InnerException.Message
+                });
+            }
+        }
         /// <summary>
         /// Atualizar parte das informações do paciente
         /// </summary>
         /// <remarks>
         /// 
         /// Acesso permitido:
-        /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Inicial       - Usuário externo (Paciente)
+        ///     - Intermediário - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do paciente</param>
         /// <param name="patchPaciente">informações a serem alteradas</param>
         /// <returns>Retorna uma mensagem informando se o paciente teve seu dado alterado ou se houve falha</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpPatch("{id}")]
         public IActionResult PatchPaciente(int id, [FromBody] JsonPatchDocument patchPaciente)
         {
@@ -224,16 +262,16 @@ namespace Desafio.Controllers
         /// <remarks>
         /// 
         /// Acesso permitido:
-        /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Inicial       - Usuário externo (Paciente)
+        ///     - Intermediário - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da paciente</param>
         /// <param name="paciente">Dados atualizados</param>
         /// <returns>Retorna uma mensagem informando se o paciente foi alterado ou se houve falha</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpPut("{id}")]
         public IActionResult PutPaciente(int id, Paciente paciente)
         {
@@ -272,13 +310,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da paciente a ser excluído</param>
         /// <returns>Retorna uma mensagem informando se o paciente foi alterado ou se houve falha</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpDelete("{id}")]
         public IActionResult DeletePaciente(int id)
         {

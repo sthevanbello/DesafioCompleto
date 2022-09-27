@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Desafio.Migrations
 {
     [DbContext(typeof(DesafioContext))]
-    [Migration("20220927173233_Inicial")]
+    [Migration("20220927202359_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,28 @@ namespace Desafio.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Desafio.Models.Administrador", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("Administrador");
+                });
 
             modelBuilder.Entity("Desafio.Models.Consulta", b =>
                 {
@@ -44,6 +66,28 @@ namespace Desafio.Migrations
                     b.HasIndex("IdPaciente");
 
                     b.ToTable("Consulta");
+                });
+
+            modelBuilder.Entity("Desafio.Models.Desenvolvedor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("Desenvolvedor");
                 });
 
             modelBuilder.Entity("Desafio.Models.Especialidade", b =>
@@ -180,6 +224,17 @@ namespace Desafio.Migrations
                     b.ToTable("Usuario");
                 });
 
+            modelBuilder.Entity("Desafio.Models.Administrador", b =>
+                {
+                    b.HasOne("Desafio.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("Desafio.Models.Consulta", b =>
                 {
                     b.HasOne("Desafio.Models.Medico", "Medico")
@@ -197,6 +252,17 @@ namespace Desafio.Migrations
                     b.Navigation("Medico");
 
                     b.Navigation("Paciente");
+                });
+
+            modelBuilder.Entity("Desafio.Models.Desenvolvedor", b =>
+                {
+                    b.HasOne("Desafio.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Desafio.Models.Medico", b =>

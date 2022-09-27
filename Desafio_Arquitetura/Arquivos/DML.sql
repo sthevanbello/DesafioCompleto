@@ -8,16 +8,16 @@ INSERT INTO TipoUsuario (Tipo)
 	VALUES
 		('Paciente'),
 		('Medico'),
-		('Administrativo'),
-		('Desenvolvimento')
-GO
-  
-INSERT INTO Acesso (Nivel)
-	VALUES
-		('Paciente'),
-		('Funcionario_Padrao'),
 		('Administrador'),
 		('Desenvolvedor')
+GO
+  
+INSERT INTO NiveisDeAcesso (Nivel)
+	VALUES
+		('Inicial'),
+		('Intermediario'),
+		('Avancado'),
+		('Master')
 GO
 INSERT INTO Especialidade (Categoria)
 	VALUES
@@ -29,6 +29,7 @@ INSERT INTO Especialidade (Categoria)
 		('Gastroenterologia'),
 		('Endocrinologista')
 GO
+
 
 
 
@@ -57,12 +58,21 @@ INSERT INTO Usuario(Nome, Email, IdTipoUsuario, Senha, IdAcesso) /* Usuários e s
 		('Diretor Seymour Skinner', 'skinner@simpsons.com',	2, '$2b$10$4ElHt0decGUecUE4OD/FweVTT3liZgxSLEgQESGtDsmMLIjaNqyNW', 2), -- skinner123456
 		
 		
-		-- Administrativos
+		-- Administrador
 		('Marge Simpson', 'marge@simpsons.com', 3, '$2b$10$KHhK9HK2glC0buVs96yEquXfQtnQ7EB3uxsXJ8KKqrRV2CPhywfku', 3), -- marge123456
 		
-		-- Desenvolvimento
+		-- Desenvolvedor
 		('Lisa Simpson', 'lisa@simpsons.com', 4, '$2b$10$j1bTqAqKaZ/okhXcA4Nzs.9JkODv9ywOlv0T22xtKorsmgkrTmFCq', 4) -- lisa123456
-		
+GO
+
+INSERT INTO Administrador (CPF, IdUsuario)
+	VALUES
+		('01545678945', 18)
+GO
+
+INSERT INTO Desenvolvedor (CPF, IdUsuario)
+	VALUES
+		('15914520154', 17)
 GO
 
 INSERT INTO Medico (CRM, IdEspecialidade, IdUsuario)

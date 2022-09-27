@@ -47,7 +47,7 @@ namespace Desafio.Repositories
         /// Exibir uma lista de Pacientes com suas respectivas consultas
         /// </summary>
         /// <returns>Retorna uma lista de pacientes com consultas e com os médicos de cada consulta</returns>
-        public ICollection<Paciente> GetPacientesComSonsultas()
+        public ICollection<Paciente> GetPacientesComConsultas()
         {
             var pacientes = _context.Paciente
                 .Include(p => p.Usuario)
@@ -64,7 +64,29 @@ namespace Desafio.Repositories
             pacientes.ForEach(p => p.Usuario.Senha = "Senha");
             pacientes.ForEach(p => p.Consultas.ForEach(m => m.Medico.Usuario.Senha = "Senha"));
             return pacientes;
-
+        }
+        /// <summary>
+        /// Exibir um paciente com o usuário de acordo com o Id
+        /// </summary>
+        /// <param name="id">Id do Paciente</param>
+        /// <returns>Retorna um paciente com um usuário preenchido</returns>
+        public Paciente GetByIdPacienteComConsulta(int id)
+        {
+            var paciente = _context.Paciente
+                .Include(p => p.Usuario)
+                    .ThenInclude(t => t.TipoUsuario)
+                .Include(p => p.Consultas)
+                    .ThenInclude(c => c.Medico)
+                        .ThenInclude(e => e.Especialidade)
+                .Include(p => p.Consultas)
+                    .ThenInclude(c => c.Medico)
+                        .ThenInclude(m => m.Usuario)
+                            .ThenInclude(t => t.TipoUsuario)
+                .FirstOrDefault(p => p.Id == id);
+            // Substituir a senha criptografada pela palavra Senha
+            paciente.Usuario.Senha = "Senha";
+            paciente.Consultas.ForEach(m => m.Medico.Usuario.Senha = "Senha");
+            return paciente;
         }
     }
 }

@@ -76,6 +76,46 @@ namespace Desafio.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Administrador",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CPF = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Administrador", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Administrador_Usuario_IdUsuario",
+                        column: x => x.IdUsuario,
+                        principalTable: "Usuario",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Desenvolvedor",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CPF = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Desenvolvedor", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Desenvolvedor_Usuario_IdUsuario",
+                        column: x => x.IdUsuario,
+                        principalTable: "Usuario",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Medico",
                 columns: table => new
                 {
@@ -152,6 +192,11 @@ namespace Desafio.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Administrador_IdUsuario",
+                table: "Administrador",
+                column: "IdUsuario");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Consulta_IdMedico",
                 table: "Consulta",
                 column: "IdMedico");
@@ -160,6 +205,11 @@ namespace Desafio.Migrations
                 name: "IX_Consulta_IdPaciente",
                 table: "Consulta",
                 column: "IdPaciente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Desenvolvedor_IdUsuario",
+                table: "Desenvolvedor",
+                column: "IdUsuario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Medico_IdEspecialidade",
@@ -190,7 +240,13 @@ namespace Desafio.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Administrador");
+
+            migrationBuilder.DropTable(
                 name: "Consulta");
+
+            migrationBuilder.DropTable(
+                name: "Desenvolvedor");
 
             migrationBuilder.DropTable(
                 name: "Medico");

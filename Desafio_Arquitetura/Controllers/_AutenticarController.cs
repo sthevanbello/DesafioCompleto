@@ -7,11 +7,11 @@ namespace Desafio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AutenticarController : ControllerBase
+    public class _AutenticarController : ControllerBase
     {
         private readonly IAutenticarRepository _repositoryLogin;
 
-        public AutenticarController(IAutenticarRepository repositoryLogin)
+        public _AutenticarController(IAutenticarRepository repositoryLogin)
         {
             _repositoryLogin = repositoryLogin;
         }
@@ -22,32 +22,33 @@ namespace Desafio.Controllers
         /// <remarks>
         /// E-mails e senhas de teste:
         /// 
-        /// Administrador:
+        /// Master (Desenvolvedor):
+        /// 
+        ///     {
+        ///        "email": "lisa@simpsons.com",
+        ///        "senha": "lisa123456"
+        ///     }
+        ///     
+        /// Avançado (Administrador):
         /// 
         ///     {
         ///        "email": "marge@simpsons.com",
         ///        "senha": "marge123456"
         ///     }
         ///
-        /// Desenvolvedor:
-        /// 
-        ///     {
-        ///        "email": "lisa@simpsons.com",
-        ///        "senha": "lisa123456"
-        ///     }
-        /// Paciente:
-        /// 
-        ///     {
-        ///        "email": "homer@simpsons.com",
-        ///        "senha": "homer123456"
-        ///     }
-        /// Funcionário Padrão (Médico):
+        /// Intermediário (Usuários internos - Médico):
         /// 
         ///     {
         ///        "email": "apu@simpsons.com",
         ///        "senha": "apu123456"
         ///     }
+        ///     
+        /// Inicial (Usuários externos - Paciente):
         /// 
+        ///     {
+        ///        "email": "homer@simpsons.com",
+        ///        "senha": "homer123456"
+        ///     }
         /// </remarks>
         /// <param name="login">Dados do login fornecidos através de um Json</param>
         /// <response code="200">Login bem sucedido</response>

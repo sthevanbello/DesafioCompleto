@@ -27,8 +27,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// Especialidade:
         /// 
@@ -42,7 +42,7 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="medico">Médico a ser inserido no banco de dados</param>
         /// <returns>Retorna o médico inserido ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpPost]
         public IActionResult InsertMedico(Medico medico)
         {
@@ -71,13 +71,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Intermediario - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de médicos ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet]
         public IActionResult GetAllMedicos()
         {
@@ -104,13 +104,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Intermediario - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de médicos com as consultas ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet("Consultas")]
         public IActionResult GetAllMedicosComConsulta()
         {
@@ -137,14 +137,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Intermediario - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do Medico</param>
         /// <returns>Retorna um médico ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet("{id}")]
         public IActionResult GetByIdMedico(int id)
         {
@@ -175,14 +175,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do Médico</param>
         /// <param name="patchMedico">informações a serem alteradas</param>
         /// <returns>Retorna se o médico foi alterado ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpPatch("{id}")]
         public IActionResult PatchMedico(int id, [FromBody] JsonPatchDocument patchMedico)
         {
@@ -225,14 +225,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da Medico</param>
         /// <param name="medico">Dados atualizados</param>
         /// <returns>Retorna se o médico foi alterado ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpPut("{id}")]
         public IActionResult PutMedico(int id, Medico medico)
         {
@@ -271,13 +271,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da Médico a ser excluído</param>
         /// <returns>Retorna se o médico foi apagado ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpDelete("{id}")]
         public IActionResult DeleteMedico(int id)
         {

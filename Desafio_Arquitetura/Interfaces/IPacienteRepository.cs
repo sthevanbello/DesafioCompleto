@@ -11,6 +11,7 @@ namespace Desafio.Interfaces
     {
         public ICollection<Paciente> GetAllPacientes();
         public Paciente GetByIdPaciente(int id);
-        public ICollection<Paciente> GetPacientesComSonsultas();
+        public ICollection<Paciente> GetPacientesComConsultas();
+        public Paciente GetByIdPacienteComConsulta(int id);
     }
 }

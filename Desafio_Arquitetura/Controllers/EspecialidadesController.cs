@@ -27,13 +27,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="especialidade">Especialidade a ser inserida</param>
         /// <returns>Retorna a especialidade inserida ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpPost]
         public IActionResult InsertEspecialidade(Especialidade especialidade)
         {
@@ -60,14 +60,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Paciente
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Inicial       - Usuário externo (Pacientes)
+        ///     - Intermediário - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de especialidades ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpGet]
         public IActionResult GetAllEspecialidades()
         {
@@ -94,14 +94,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Paciente
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Inicial       - Usuário externo (Pacientes)
+        ///     - Intermediário - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de especialidades com os médicos ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpGet("Medicos")]
         public IActionResult GetAllEspecialidadeComMedicos()
         {
@@ -128,15 +128,15 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Paciente
-        ///     - Funcionário Padrão
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Inicial       - Usuário externo (Pacientes)
+        ///     - Intermediário - Usuário interno (Médico)
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da especialidade</param>
         /// <returns>Retorna uma especialidade ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Paciente, Funcionario_Padrao, Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpGet("{id}")]
         public IActionResult GetEspecialidadeById(int id)
         {
@@ -167,14 +167,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da especialidade</param>
         /// <param name="patchEspecialidade">informações a serem alteradas</param>
         /// <returns>Retorna se a especialidade foi alterada ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpPatch("{id}")]
         public IActionResult PatchEspecialidade(int id, [FromBody] JsonPatchDocument patchEspecialidade)
         {
@@ -213,14 +213,14 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da especialidade</param>
         /// <param name="especialidade">Dados atualizados</param>
         /// <returns>Retorna se a especialidade foi alterada ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpPut("{id}")]
         public IActionResult PutEspecialidade(int id, Especialidade especialidade)
         {
@@ -259,13 +259,13 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id da especialidade a ser excluído</param>
         /// <returns>Retorna se a especialidade foi apagada ou uma mensagem de erro</returns>
-        [Authorize(Roles = "Administrador, Desenvolvedor")]
+        [Authorize(Roles = "Avancado, Master")]
         [HttpDelete("{id}")]
         public IActionResult DeleteEspecialidade(int id)
         {

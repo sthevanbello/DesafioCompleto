@@ -11,7 +11,7 @@ namespace Desafio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrador, Desenvolvedor")]
+    [Authorize(Roles = "Avancado, Master")]
     public class TipoUsuariosController : ControllerBase
     {
         private readonly ITipoUsuarioRepository _tipoUsuarioRepository;
@@ -28,8 +28,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de tipoUsuario ou se houve falha</returns>
@@ -59,8 +59,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do tipo de usuário</param>

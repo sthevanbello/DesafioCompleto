@@ -11,7 +11,7 @@ namespace Desafio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrador, Desenvolvedor")]
+    [Authorize(Roles = "Avancado, Master")]
     public class NiveisDeAcessoController : ControllerBase
     {
         private readonly INiveisDeAcessoRepository _repositoryAcesso;
@@ -28,8 +28,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <returns>Retorna uma lista de níveis de acessos ou se houve falha</returns>
@@ -59,8 +59,8 @@ namespace Desafio.Controllers
         /// 
         /// Acesso permitido:
         /// 
-        ///     - Administrador
-        ///     - Desenvolvedor
+        ///     - Avançado      - Administrador
+        ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
         /// <param name="id">Id do nível de acesso</param>
