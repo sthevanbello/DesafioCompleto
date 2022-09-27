@@ -16,8 +16,6 @@ namespace TestsRequests.Utils
         /// <summary>
         /// Método para recuperar o Token a partir das chamadas HttpWebRequest e HttpWebResponse
         /// </summary>
-        /// <param name="email">email recebido para realizar a autenticação</param>
-        /// <param name="senha">senha recebida para realizar a autenticação</param>
         /// <returns>Retorna um token válido por 30 minutos</returns>
         public static string GetToken(Autenticar login)
         {
