@@ -14,7 +14,7 @@ namespace TestDesafio.Controllers
 {
     public class UsuariosControllerTests
     {
-        // Preparação - Criar um repositório Fake e ustilizá-lo no controller
+        // Preparação - Criar um repositório Fake e utilizá-lo no controller
         private readonly Mock<IUsuarioRepository> _mockRepo;
         private readonly UsuariosController _controller;
 

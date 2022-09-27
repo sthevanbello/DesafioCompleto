@@ -36,6 +36,8 @@ namespace TestsRequests.Controllers
                 http.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 var response = http.GetAsync(urlParams).Result;
 
+                // Converte o resultado obtido pelo GetAsync, que é um JSON, para um objeto do tipo List<Paciente> ignorando as letras maiúsculas e minúsculas
+                // Se não utilizar o Case Insensitive, o objeto JSON não será convertido
                 var retorno = JsonSerializer.Deserialize<List<Paciente>>(response.Content.ReadAsStringAsync().Result, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
