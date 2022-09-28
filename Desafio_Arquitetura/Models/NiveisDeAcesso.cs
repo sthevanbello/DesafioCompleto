@@ -8,7 +8,6 @@ namespace Desafio.Models
     /// </summary>
     public class NiveisDeAcesso
     {
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [Key]
         public int Id { get; set; }
         [Required]

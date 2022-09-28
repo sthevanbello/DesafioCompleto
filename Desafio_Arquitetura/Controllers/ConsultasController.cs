@@ -32,6 +32,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="consulta">Consulta a ser inserida</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna a consulta inserida ou uma mensagem de erro</returns>
         [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpPost]
@@ -64,6 +66,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma lista de consultas ou uma mensagem de erro</returns>
         [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet]
@@ -98,6 +102,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id da consulta</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma consulta com paciente e médico ou uma mensagem de erro</returns>
         [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpGet("{id}")]
@@ -137,6 +143,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id da consulta</param>
         /// <param name="patchConsulta">informações a serem alteradas</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem se a consulta foi alterada ou se houve algum erro</returns>
         [Authorize(Roles = "Avancado, Master")]
         [HttpPatch("{id}")]
@@ -183,6 +191,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id da consulta</param>
         /// <param name="consulta">Dados atualizados</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem se a consulta foi alterada ou se houve algum erro</returns>
         [Authorize(Roles = "Avancado, Master")]
         [HttpPut("{id}")]
@@ -228,6 +238,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id da consulta a ser excluído</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem se a consulta foi apagada ou se houve algum erro</returns>
         [Authorize(Roles = "Avancado, Master")]
         [HttpDelete("{id}")]

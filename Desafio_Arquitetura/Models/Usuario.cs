@@ -11,7 +11,6 @@ namespace Desafio.Models
     /// </summary>
     public class Usuario
     {
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [Key]
         public int Id { get; set; }
 
@@ -26,14 +25,12 @@ namespace Desafio.Models
         [MinLength(6, ErrorMessage = "A senha deverá ter no mínimo 6 caracteres")]
         public string Senha { get; set; }
 
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [ForeignKey("TipoUsuario")]
         public int IdTipoUsuario { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public TipoUsuario TipoUsuario { get; set; }
 
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [ForeignKey("Acesso")]
         public int IdAcesso { get; set; }
 

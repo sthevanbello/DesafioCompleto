@@ -32,6 +32,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma lista de níveis de acessos ou se houve falha</returns>
         [HttpGet]
         public IActionResult GetAllAcessos()
@@ -64,6 +66,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id do nível de acesso</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um nível de acesso ou se houve falha</returns>
 
         [HttpGet("{id}")]

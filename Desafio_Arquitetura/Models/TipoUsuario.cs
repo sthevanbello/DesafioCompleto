@@ -9,7 +9,6 @@ namespace Desafio.Models
     /// </summary>
     public class TipoUsuario
     {
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [Key]
         public int Id { get; set; }
         public string Tipo { get; set; }

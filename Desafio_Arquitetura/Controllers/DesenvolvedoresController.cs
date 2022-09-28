@@ -32,6 +32,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="desenvolvedor">desenvolvedor a ser inserido</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um desenvolvedor inserido ou uma mensagem de falha</returns>
         [HttpPost]
         public IActionResult Insertdesenvolvedor(Desenvolvedor desenvolvedor)
@@ -63,6 +65,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma lista de desenvolvedores</returns>
         [HttpGet]
         public IActionResult GetAlldesenvolvedores()
@@ -94,6 +98,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id do desenvolvedor</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um desenvolvedor</returns>
         [HttpGet("{id}")]
         public IActionResult GetByIddesenvolvedor(int id)
@@ -130,6 +136,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id do desenvolvedor</param>
         /// <param name="patchdesenvolvedor">informações a serem alteradas</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem dizendo se o desenvolvedor foi alterado ou se houve algum erro</returns>
         [HttpPatch("{id}")]
         public IActionResult Patchdesenvolvedor(int id, [FromBody] JsonPatchDocument patchdesenvolvedor)
@@ -174,6 +182,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id do desenvolvedor</param>
         /// <param name="desenvolvedor">informações a serem alteradas</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem dizendo se o desenvolvedor foi alterado ou se houve algum erro</returns>
         [HttpPut("{id}")]
         public IActionResult PutUsuario(int id, Desenvolvedor desenvolvedor)
@@ -217,6 +227,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id do desenvolvedor a ser excluído</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem informando se o desenvolvedor foi alterado ou se houve falha</returns>
         [HttpDelete("{id}")]
         public IActionResult DeleteDesenvolvedor(int id)

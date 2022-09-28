@@ -11,7 +11,6 @@ namespace Desafio.Models
     [DebuggerDisplay("{Id}: {Usuario.Nome} - {Usuario.Acesso.Nivel}")]
     public class Administrador
     {
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [Key]
         public int Id { get; set; }
 

@@ -11,7 +11,7 @@ namespace Desafio.Models
     /// </summary>
     public class Medico
     {
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+
         [Key]
         public int Id { get; set; }
         [Required]

@@ -13,7 +13,6 @@ namespace Desafio.Models
     [DebuggerDisplay("{Id}: {Usuario.Nome} - {Ativo}")]
     public class Paciente
     {
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [Key]
         public int Id { get; set; }
         [Required(ErrorMessage ="Informe o número da carteirinha")]

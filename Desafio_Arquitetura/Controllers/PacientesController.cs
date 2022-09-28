@@ -33,6 +33,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="paciente">Paciente a ser inserido</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um paciente inserido ou se houve falha</returns>
         [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpPost]
@@ -67,6 +69,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um paciente ou se houve falha</returns>
         [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet]
@@ -100,6 +104,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma lista de  pacientes comconsultas ou se houve falha</returns>
         [Authorize(Roles = "Intermediario, Avancado, Master")]
         [HttpGet("Consultas")]
@@ -134,6 +140,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id do paciente</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um paciente ou se houve falha</returns>
         [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpGet("{id}")]
@@ -158,7 +166,7 @@ namespace Desafio.Controllers
                 });
             }
         }
-        
+
         /// <summary>
         /// Exibir um paciente a partir do Id fornecido
         /// </summary>
@@ -173,6 +181,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id do paciente</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um paciente ou se houve falha</returns>
         [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpGet("Consulta/{id}")]
@@ -211,6 +221,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id do paciente</param>
         /// <param name="patchPaciente">informações a serem alteradas</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem informando se o paciente teve seu dado alterado ou se houve falha</returns>
         [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpPatch("{id}")]
@@ -270,6 +282,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id da paciente</param>
         /// <param name="paciente">Dados atualizados</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem informando se o paciente foi alterado ou se houve falha</returns>
         [Authorize(Roles = "Inicial, Intermediario, Avancado, Master")]
         [HttpPut("{id}")]
@@ -315,6 +329,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id da paciente a ser excluído</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem informando se o paciente foi alterado ou se houve falha</returns>
         [Authorize(Roles = "Avancado, Master")]
         [HttpDelete("{id}")]

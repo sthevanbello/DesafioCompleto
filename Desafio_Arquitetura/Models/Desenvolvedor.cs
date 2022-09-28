@@ -12,7 +12,6 @@ namespace Desafio.Models
     public class Desenvolvedor
     {
         [Key]
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Informe o CPF")]

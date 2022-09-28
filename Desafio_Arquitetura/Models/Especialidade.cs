@@ -10,7 +10,6 @@ namespace Desafio.Models
     public class Especialidade
     {
         [Key]
-        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         public int Id { get; set; }
         [Required(ErrorMessage ="Informe a categoria da especialidade")]
         public string Categoria { get; set; }

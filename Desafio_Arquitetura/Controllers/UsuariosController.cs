@@ -1,5 +1,6 @@
 ﻿using Desafio.Interfaces;
 using Desafio.Models;
+using Desafio.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
@@ -35,6 +36,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma lista de usuários</returns>
         [HttpGet]
         public IActionResult GetAllUsuarios()
@@ -69,6 +72,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma lista de usuários médicos</returns>
         [HttpGet("Medicos")]
         public IActionResult GetAllUsuariosMedicos()
@@ -99,6 +104,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma lista de usuários pacientes</returns>
         [HttpGet("Pacientes")]
         public IActionResult GetAllUsuariosPacientes()
@@ -131,6 +138,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id do usuário</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um Usuário</returns>
         [HttpGet("{id}")]
         public IActionResult GetByIdUsuario(int id)
@@ -169,6 +178,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id do usuário</param>
         /// <param name="patchUsuario">informações a serem alteradas</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem dizendo se o usuário foi alterado ou se houve algum erro</returns>
         [HttpPatch("{id}")]
         public IActionResult PatchUsuario(int id, [FromBody] JsonPatchDocument patchUsuario)
@@ -214,6 +225,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id do usuário</param>
         /// <param name="usuario">Dados atualizados</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem dizendo se o usuário foi alterado ou se houve algum erro</returns>
         [HttpPut("{id}")]
         public IActionResult PutUsuario(int id, Usuario usuario)
@@ -241,6 +254,47 @@ namespace Desafio.Controllers
                 return BadRequest(new
                 {
                     msg = "Falha ao alterar o usuário",
+                    ex.InnerException.Message
+                });
+            }
+        }
+        /// <summary>
+        /// Excluir Usuário do banco de dados
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// Acesso permitido:
+        /// 
+        ///     - Master        - Desenvolvedor
+        /// 
+        /// </remarks>
+        /// <param name="id">Id do usuário a ser excluído</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
+        /// <returns>Retorna uma mensagem informando se o usuário foi excluído ou se houve falha</returns>
+        [Authorize(Roles = "Master")]
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUsuario(int id)
+        {
+            try
+            {
+                var usuarioRetorno = _usuarioRepository.GetById(id);
+
+                if (usuarioRetorno is null)
+                {
+                    return NotFound(new { msg = "Usuário não encontrado. Conferir o Id informado" });
+                }
+
+                _usuarioRepository.Delete(usuarioRetorno);
+
+                return Ok(new { msg = "Usuário excluído com sucesso" });
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new
+                {
+                    msg = "Falha ao excluir o usuário. Verifique se há utilização como Foreign Key.",
                     ex.InnerException.Message
                 });
             }

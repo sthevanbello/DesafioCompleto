@@ -33,6 +33,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="administrador">Administrador a ser inserido</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um Administrador inserido ou uma mensagem de falha</returns>
         [HttpPost]
         public IActionResult InsertAdministrador(Administrador administrador)
@@ -64,6 +66,8 @@ namespace Desafio.Controllers
         ///     - Master        - Desenvolvedor
         /// 
         /// </remarks>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma lista de administradores</returns>
         [HttpGet]
         public IActionResult GetAllAdministradores()
@@ -95,6 +99,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id do Administrador</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna um Administrador</returns>
         [HttpGet("{id}")]
         public IActionResult GetByIdAdministrador(int id)
@@ -131,6 +137,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id do administrador</param>
         /// <param name="patchAdministrador">informações a serem alteradas</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem dizendo se o administrador foi alterado ou se houve algum erro</returns>
         [HttpPatch("{id}")]
         public IActionResult PatchAdministrador(int id, [FromBody] JsonPatchDocument patchAdministrador)
@@ -175,6 +183,8 @@ namespace Desafio.Controllers
         /// </remarks>
         /// <param name="id">Id do administrador</param>
         /// <param name="administrador">informações a serem alteradas</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem dizendo se o administrador foi alterado ou se houve algum erro</returns>
         [HttpPut("{id}")]
         public IActionResult PutAdministrador(int id, Administrador administrador)
@@ -218,6 +228,8 @@ namespace Desafio.Controllers
         /// 
         /// </remarks>
         /// <param name="id">Id do administrador a ser excluído</param>
+        /// <response code="401">Acesso negado</response>
+        /// <response code="403">Nível de acesso não está autorizado</response>
         /// <returns>Retorna uma mensagem informando se o administrador foi alterado ou se houve falha</returns>
         [HttpDelete("{id}")]
         public IActionResult DeleteAdministrador(int id)
