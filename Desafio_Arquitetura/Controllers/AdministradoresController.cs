@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Data;
+using System.Linq;
 
 namespace Desafio.Controllers
 {
@@ -69,11 +70,7 @@ namespace Desafio.Controllers
         {
             try
             {
-                var administradores = _administradorRepository.GetAll();
-                if (administradores != null && administradores.Count > 0)
-                {
-                    administradores.ForEach(u => u.Usuario.Senha = "Senha");
-                }
+                var administradores = _administradorRepository.GetAllAdministradores();
                 return Ok(administradores);
             }
             catch (Exception ex)
@@ -104,12 +101,11 @@ namespace Desafio.Controllers
         {
             try
             {
-                var administrador = _administradorRepository.GetById(id);
-                if (administrador is null)
+                var administrador = _administradorRepository.GetByIdAdministrador(id);
+                if (administrador == null)
                 {
                     return NotFound(new { msg = "Administrador não foi encontrado. Verifique se o Id está correto" });
                 }
-                administrador.Usuario.Senha = "Senha";
                 return Ok(administrador);
             }
             catch (Exception ex)

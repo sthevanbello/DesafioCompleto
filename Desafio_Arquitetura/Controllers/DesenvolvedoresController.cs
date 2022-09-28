@@ -69,11 +69,7 @@ namespace Desafio.Controllers
         {
             try
             {
-                var desenvolvedores = _desenvolvedorRepository.GetAll();
-                if (desenvolvedores != null && desenvolvedores.Count > 0)
-                {
-                    desenvolvedores.ForEach(u => u.Usuario.Senha = "Senha");
-                }
+                var desenvolvedores = _desenvolvedorRepository.GetAllDesenvolvedores();
                 return Ok(desenvolvedores);
             }
             catch (Exception ex)
@@ -104,12 +100,11 @@ namespace Desafio.Controllers
         {
             try
             {
-                var desenvolvedor = _desenvolvedorRepository.GetById(id);
-                if (desenvolvedor is null)
+                var desenvolvedor = _desenvolvedorRepository.GetByIdDesenvolvedor(id);
+                if (desenvolvedor == null)
                 {
                     return NotFound(new { msg = "Desenvolvedor não foi encontrado. Verifique se o Id está correto" });
                 }
-                desenvolvedor.Usuario.Senha = "Senha";
                 return Ok(desenvolvedor);
             }
             catch (Exception ex)
