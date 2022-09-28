@@ -13,6 +13,7 @@ namespace Desafio.Models
     [DebuggerDisplay("{Id}: {Usuario.Nome} - {Ativo}")]
     public class Paciente
     {
+        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [Key]
         public int Id { get; set; }
         [Required(ErrorMessage ="Informe o número da carteirinha")]
@@ -22,7 +23,7 @@ namespace Desafio.Models
         public DateTime DataNascimento { get; set; }
         [Required(ErrorMessage ="Informe se o usuário está ativo (true) ou inativo (false)")]
         public bool Ativo { get; set; }
-        [Required]
+        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [ForeignKey("Usuario")]
         public int IdUsuario { get; set; }
         public Usuario Usuario { get; set; }

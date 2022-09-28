@@ -67,13 +67,14 @@ GO
 
 INSERT INTO Administrador (CPF, IdUsuario)
 	VALUES
-		('01545678945', 18)
+		('01545678945', 17)
 GO
 
 INSERT INTO Desenvolvedor (CPF, IdUsuario)
 	VALUES
-		('15914520154', 17)
+		('15914520154', 18)
 GO
+
 
 INSERT INTO Medico (CRM, IdEspecialidade, IdUsuario)
 	VALUES

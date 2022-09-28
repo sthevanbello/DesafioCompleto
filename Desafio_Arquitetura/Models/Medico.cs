@@ -11,6 +11,7 @@ namespace Desafio.Models
     /// </summary>
     public class Medico
     {
+        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [Key]
         public int Id { get; set; }
         [Required]
@@ -21,7 +22,7 @@ namespace Desafio.Models
         public int IdEspecialidade { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public Especialidade Especialidade { get; set; }
-        [Required]
+        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [ForeignKey("Usuario")]
         public int IdUsuario { get; set; }
         public Usuario Usuario { get; set; }

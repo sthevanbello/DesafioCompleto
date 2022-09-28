@@ -39,8 +39,8 @@ namespace Desafio.Controllers
             try
             {
                 desenvolvedor.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(desenvolvedor.Usuario.Senha); // Criptografia da senha
-                desenvolvedor.Usuario.IdTipoUsuario = 3; // Garante que o tipo de usuário será sempre 4, pois é desenvolvedor
-                desenvolvedor.Usuario.IdAcesso = 3;
+                desenvolvedor.Usuario.IdTipoUsuario = 4; // Garante que o tipo de usuário será sempre 4, pois é desenvolvedor
+                desenvolvedor.Usuario.IdAcesso = 4;
                 var desenvolvedorInserido = _desenvolvedorRepository.Insert(desenvolvedor);
                 return Ok(desenvolvedorInserido);
             }

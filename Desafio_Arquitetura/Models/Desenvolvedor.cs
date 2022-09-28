@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Text.Json.Serialization;
 
 namespace Desafio.Models
 {
@@ -11,6 +12,7 @@ namespace Desafio.Models
     public class Desenvolvedor
     {
         [Key]
+        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Informe o CPF")]
@@ -18,7 +20,7 @@ namespace Desafio.Models
         [MaxLength(11, ErrorMessage = "O CPF deverá conter 11 caracteres e somente números")]
         public string CPF { get; set; }
 
-        [Required]
+        [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
         [ForeignKey("Usuario")]
         public int IdUsuario { get; set; }
         public Usuario Usuario { get; set; }
