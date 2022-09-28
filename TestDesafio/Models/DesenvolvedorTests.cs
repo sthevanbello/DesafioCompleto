@@ -3,28 +3,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace TestDesafio.Models
 {
-    public class AdministradorTests
+    public  class DesenvolvedorTests
     {
         /// <summary>
         /// Testar se o objeto instanciado retorna NotNull
         /// </summary>
         [Fact]
-        public void DeveRetornarAdministradorNotNull()
+        public void DeveRetornarDesenvolvedorNotNull()
         {
             //Preparação
-            Administrador admin;
+            Desenvolvedor dev;
 
             // Execução
-            admin = new Administrador();
+            dev = new Desenvolvedor();
 
             // Retorno esperado
-            Assert.NotNull(admin);
+            Assert.NotNull(dev);
         }
         /// <summary>
         /// Testar se o CPF possui 11 dígitos
@@ -33,10 +32,10 @@ namespace TestDesafio.Models
         public void DeveRetornarSeOCPFPossuiOTamanhoCorreto()
         {
             //Preparação
-            Administrador admin;
+            Desenvolvedor dev;
 
             // Execução
-            admin = new Administrador
+            dev = new Desenvolvedor
             {
                 Id = 5,
                 CPF = "12345678910",
@@ -45,7 +44,7 @@ namespace TestDesafio.Models
             };
 
             // Retorno esperado
-            Assert.Equal(11, admin.CPF.Length);
+            Assert.Equal(11, dev.CPF.Length);
 
         }
     }
