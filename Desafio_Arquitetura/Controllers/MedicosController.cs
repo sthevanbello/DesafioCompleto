@@ -58,7 +58,6 @@ namespace Desafio.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(new
                 {
                     msg = "Falha ao inserir um Médico no banco",

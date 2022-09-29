@@ -35,9 +35,6 @@ namespace Desafio.Repositories
                     .ThenInclude(u => u.Usuario)
                         .ThenInclude(t => t.TipoUsuario)
                 .ToList();
-            // Substituir a senha criptografada pela palavra Senha
-            consultasCompletas.ForEach(m => m.Medico.Usuario.Senha = "Senha");
-            consultasCompletas.ForEach(p => p.Paciente.Usuario.Senha = "Senha");
             return consultasCompletas;
         }
         /// <summary>
@@ -57,11 +54,6 @@ namespace Desafio.Repositories
                     .ThenInclude(u => u.Usuario)
                         .ThenInclude(t => t.TipoUsuario)
                 .FirstOrDefault(c => c.Id == id);
-            // Deixado o médico apenas com o nome, pois o acesso por ID é feito pelo também paciente
-            // Isso foi feito para preservar dados pessoais do médico
-            consultaCompleta.Medico.Usuario = new Usuario { Nome = consultaCompleta.Medico.Usuario.Nome };
-            // Substituir a senha criptografada pela palavra Senha
-            consultaCompleta.Paciente.Usuario.Senha = "Senha";
             return consultaCompleta;
         }
     }

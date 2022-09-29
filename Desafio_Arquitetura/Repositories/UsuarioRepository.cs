@@ -31,10 +31,6 @@ namespace Desafio.Repositories
                     .ThenInclude(e => e.Especialidade)
                 .Where(m => m.IdTipoUsuario == 2)
                 .ToList();
-            if (medicos != null && medicos.Count > 0)
-            {
-                medicos.ForEach(p => p.Senha = "Senha"); // Substituir a senha criptografada pela palavra Senha se o médico não for null
-            }
             return medicos;
         }
 
@@ -49,10 +45,6 @@ namespace Desafio.Repositories
                 .Include(p => p.Pacientes)
                 .Where(p => p.IdTipoUsuario == 1)
                 .ToList();
-            if (pacientes != null && pacientes.Count > 0)
-            {
-                pacientes.ForEach(p => p.Senha = "Senha"); // Substituir a senha criptografada pela palavra Senha se o paciente não for null
-            }
             return pacientes;
         }
     }

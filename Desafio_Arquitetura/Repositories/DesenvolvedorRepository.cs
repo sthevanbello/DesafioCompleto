@@ -27,7 +27,6 @@ namespace Desafio.Repositories
             return _context.Desenvolvedor
                 .Include(d => d.Usuario)
                 .FirstOrDefault(d => d.Id == id);
-                
         }
     }
 }

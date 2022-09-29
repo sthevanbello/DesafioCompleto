@@ -45,10 +45,6 @@ namespace Desafio.Controllers
             try
             {
                 var usuarios = _usuarioRepository.GetAll();
-                if (usuarios != null && usuarios.Count > 0)
-                {
-                    usuarios.ForEach(u => u.Senha = "Senha");
-                }
                 return Ok(usuarios);
             }
             catch (Exception ex)
@@ -151,7 +147,6 @@ namespace Desafio.Controllers
                 {
                     return NotFound(new { msg = "Usuário não foi encontrado. Verifique se o Id está correto" });
                 }
-                usuario.Senha = "Senha";
                 return Ok(usuario);
             }
             catch (Exception ex)
