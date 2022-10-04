@@ -39,7 +39,6 @@ namespace Desafio
             // Recebe a string de conexão do arquivo appsettings.json
             services.AddDbContext<DesafioContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DesafioArquitetura")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
-
             // Evita o erro de loop infinito em objetos relacionados
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
@@ -132,7 +131,8 @@ namespace Desafio
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+
+            if (env.IsDevelopment() || env.IsProduction())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
