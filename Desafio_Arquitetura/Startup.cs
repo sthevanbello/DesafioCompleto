@@ -38,7 +38,9 @@ namespace Desafio
             // Adicionar a a conexão com o banco aos serviços de configuração
             // Recebe a string de conexão do arquivo appsettings.json
             services.AddDbContext<DesafioContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DesafioArquitetura")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+            //options.UseSqlServer(Configuration.GetConnectionString("DesafioArquitetura")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+            options.UseSqlServer(Configuration.GetConnectionString("DesafioArquiteturaAzure")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+
             // Evita o erro de loop infinito em objetos relacionados
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
