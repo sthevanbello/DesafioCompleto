@@ -24,7 +24,7 @@ namespace Desafio.Repositories
             _dbSet = _context.Set<T>();
         }
         /// <summary>
-        /// Inserie um item na base de dados
+        /// Inserir um item na base de dados
         /// </summary>
         /// <param name="item"></param>
         /// <returns>Retorna o item que foi inserido na base de dados</returns>
